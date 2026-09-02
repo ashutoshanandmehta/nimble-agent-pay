@@ -96,7 +96,30 @@ function Team() {
             <div className="people" style={{ marginTop: 24 }}>
               {PEOPLE.map((p) => (
                 <Reveal as="article" key={p.name} className="glass person">
-                  <img src={p.img} alt={p.name} />
+                  <img
+                    src={p.img}
+                    alt={p.name}
+                    loading="lazy"
+                    onError={(e) => {
+                      const el = e.currentTarget;
+                      el.style.display = "none";
+                      const ph = el.nextElementSibling as HTMLElement | null;
+                      if (ph?.dataset.avatarFallback) ph.style.display = "grid";
+                    }}
+                  />
+                  <div
+                    data-avatar-fallback="1"
+                    aria-hidden="true"
+                    className="avatar-fallback"
+                    style={{ display: "none" }}
+                  >
+                    {p.name
+                      .replace(/^Prof\.\s*/, "")
+                      .split(" ")
+                      .map((w) => w[0])
+                      .slice(0, 2)
+                      .join("")}
+                  </div>
                   <div>
                     <div className="eyebrow">{p.kicker}</div>
                     <h3>{p.name}</h3>
