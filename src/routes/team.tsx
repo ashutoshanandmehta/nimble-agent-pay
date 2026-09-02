@@ -104,7 +104,7 @@ function Team() {
                       const el = e.currentTarget;
                       el.style.display = "none";
                       const ph = el.nextElementSibling as HTMLElement | null;
-                      if (ph?.dataset.avatarFallback) ph.style.display = "grid";
+                      if (ph?.dataset['avatarFallback']) ph.style.display = "grid";
                     }}
                   />
                   <div
