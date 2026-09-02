@@ -28,7 +28,7 @@ html{font-size:12px}
 @media(max-width:600px){.container{width:min(100% - 1.5rem,1240px)}}
 
 .person .avatar-fallback{
-  width:4.5rem;height:4.5rem;border-radius:1rem;
+  width:4.875rem;height:4.875rem;border-radius:1.375rem;font-size:1.25rem;
   place-items:center;font-weight:700;letter-spacing:.04em;
   background:linear-gradient(140deg,#dfe7ff,#efe6ff);color:#2b3550;flex:0 0 auto;
 }
