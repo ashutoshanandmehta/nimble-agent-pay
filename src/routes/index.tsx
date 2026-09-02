@@ -98,7 +98,7 @@ function Home() {
                     <span className="step-mark">{i + 1}</span>
                     <div>
                       <b>{name}</b>
-                      <div style={{ fontSize: 12, color: "var(--muted)" }}>{note}</div>
+                      <div style={{ fontSize: 12, color: "var(--pmuted)" }}>{note}</div>
                     </div>
                   </div>
                 ))}
