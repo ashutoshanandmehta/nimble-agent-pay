@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as TeamRouteImport } from './routes/team'
 import { Route as TrustRouteImport } from './routes/trust'
 import { Route as UseCasesRouteImport } from './routes/use-cases'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const HowItWorksRoute = HowItWorksRouteImport.update({
   id: '/how-it-works',
   path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TeamRoute = TeamRouteImport.update({
+  id: '/team',
+  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TrustRoute = TrustRouteImport.update({
@@ -38,12 +44,14 @@ const UseCasesRoute = UseCasesRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/team': typeof TeamRoute
   '/trust': typeof TrustRoute
   '/use-cases': typeof UseCasesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/team': typeof TeamRoute
   '/trust': typeof TrustRoute
   '/use-cases': typeof UseCasesRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/team': typeof TeamRoute
   '/trust': typeof TrustRoute
   '/use-cases': typeof UseCasesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/how-it-works' | '/trust' | '/use-cases'
+  fullPaths: '/' | '/how-it-works' | '/team' | '/trust' | '/use-cases'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/how-it-works' | '/trust' | '/use-cases'
-  id: '__root__' | '/' | '/how-it-works' | '/trust' | '/use-cases'
+  to: '/' | '/how-it-works' | '/team' | '/trust' | '/use-cases'
+  id: '__root__' | '/' | '/how-it-works' | '/team' | '/trust' | '/use-cases'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   HowItWorksRoute: typeof HowItWorksRoute
+  TeamRoute: typeof TeamRoute
   TrustRoute: typeof TrustRoute
   UseCasesRoute: typeof UseCasesRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/how-it-works'
       fullPath: '/how-it-works'
       preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/trust': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HowItWorksRoute: HowItWorksRoute,
+  TeamRoute: TeamRoute,
   TrustRoute: TrustRoute,
   UseCasesRoute: UseCasesRoute,
 }
