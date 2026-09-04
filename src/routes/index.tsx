@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { HouseholdDemo } from "@/components/household-demo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -130,6 +131,11 @@ function Home() {
                   <p>{body}</p>
                 </article>
               ))}
+            </div>
+            <div className="home-household">
+              <div className="eyebrow">Household workflow</div>
+              <h2>From detection to an authorised purchase.</h2>
+              <HouseholdDemo />
             </div>
           </div>
         </Reveal>
