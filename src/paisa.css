@@ -3121,3 +3121,245 @@ html {
     text-align: left;
   }
 }
+
+/* Phase 5: precise trust and authority diagrams. */
+.trust-hero {
+  min-height: auto;
+  padding-bottom: 3.5rem;
+}
+.trust-hero h1 {
+  max-width: 59rem;
+}
+.trust-boundary-layout {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+.trust-boundary-flow {
+  padding: 1.15rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  text-align: center;
+}
+.trust-boundary-flow > div,
+.trust-boundary-flow > strong {
+  width: 100%;
+  padding: 0.68rem;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.18);
+}
+.trust-boundary-flow span,
+.trust-boundary-flow b {
+  display: block;
+}
+.trust-boundary-flow span {
+  font:
+    700 0.59rem/1 "DM Mono",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.trust-boundary-flow b {
+  margin-top: 0.38rem;
+  font-size: 0.75rem;
+}
+.trust-boundary-flow i,
+.trust-evidence-flow i,
+.failure-mini-flow i {
+  font-style: normal;
+  color: var(--faint);
+}
+.trust-boundary-flow .trust-authorize {
+  background: rgba(55, 114, 196, 0.12);
+  border-color: rgba(105, 143, 224, 0.36);
+}
+.trust-boundary-flow > strong {
+  background: linear-gradient(100deg, rgba(47, 164, 125, 0.2), rgba(67, 102, 203, 0.14));
+  border-color: rgba(84, 196, 146, 0.4);
+  color: var(--green);
+  font-size: 0.82rem;
+}
+.trust-control-flow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.trust-control-flow article {
+  padding: 1.5rem;
+  min-height: 15rem;
+}
+.trust-control-flow article > span {
+  font:
+    800 0.7rem/1 "DM Mono",
+    monospace;
+  color: var(--faint);
+}
+.trust-control-flow h3 {
+  margin: 1.6rem 0 0.55rem;
+  font-size: 1.5rem;
+}
+.trust-control-flow article > b {
+  font-size: 0.72rem;
+  color: var(--blue);
+}
+.trust-control-flow p {
+  margin-top: 0.7rem;
+  font-size: 0.84rem;
+}
+.trust-evidence {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 2.1rem;
+}
+.trust-evidence-flow {
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  text-align: center;
+}
+.trust-evidence-flow b,
+.trust-evidence-flow strong {
+  width: 100%;
+  padding: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.72rem;
+}
+.trust-evidence-flow strong {
+  background: linear-gradient(100deg, rgba(49, 77, 178, 0.2), rgba(37, 157, 141, 0.16));
+  border-color: rgba(86, 132, 211, 0.35);
+  color: var(--blue);
+}
+.failure-mini-flow {
+  display: grid;
+  gap: 0.38rem;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(116, 137, 177, 0.18);
+  border-bottom: 1px solid rgba(116, 137, 177, 0.18);
+  font-size: 0.72rem;
+}
+.failure-mini-flow b {
+  color: var(--ink);
+}
+.failure-mini-flow span {
+  color: var(--faint);
+  font-size: 0.65rem;
+}
+.risk-table {
+  overflow: hidden;
+}
+.risk-row {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  border-top: 1px solid rgba(116, 137, 177, 0.16);
+  font-size: 0.79rem;
+}
+.risk-row:first-child {
+  border-top: 0;
+}
+.risk-head {
+  background: rgba(255, 255, 255, 0.16);
+  color: var(--faint);
+  font:
+    800 0.61rem/1 "DM Mono",
+    monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.risk-row strong {
+  color: var(--teal);
+}
+.trust-closing {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 2.2rem;
+}
+.trust-closing h2 {
+  font-size: clamp(1.8rem, 2.7vw, 2.8rem);
+}
+.trust-closing-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.trust-closing-labels b {
+  padding: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.48);
+  border-radius: 0.65rem;
+  background: rgba(255, 255, 255, 0.16);
+  font-size: 0.7rem;
+  text-align: center;
+}
+.dark .trust-boundary-flow > div,
+.dark .trust-evidence-flow b,
+.dark .trust-closing-labels b {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(215, 232, 255, 0.16);
+}
+.dark .trust-boundary-flow .trust-authorize,
+.dark .trust-evidence-flow strong,
+.dark .trust-boundary-flow > strong {
+  background: linear-gradient(100deg, rgba(68, 104, 211, 0.25), rgba(47, 160, 146, 0.16));
+}
+.dark .risk-head {
+  background: rgba(255, 255, 255, 0.06);
+}
+@media (max-width: 900px) {
+  .trust-boundary-layout,
+  .trust-evidence,
+  .trust-closing {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .trust-boundary-flow {
+    max-width: 36rem;
+    margin: auto;
+    width: 100%;
+  }
+  .trust-closing .btn {
+    width: max-content;
+  }
+}
+@media (max-width: 600px) {
+  .trust-control-flow {
+    grid-template-columns: 1fr;
+  }
+  .trust-control-flow article {
+    min-height: 0;
+  }
+  .risk-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .risk-head {
+    display: none;
+  }
+  .risk-row strong:before {
+    content: "Control: ";
+    color: var(--faint);
+  }
+  .trust-closing {
+    padding: 1.45rem;
+  }
+  .trust-closing-labels {
+    grid-template-columns: 1fr;
+  }
+  .trust-closing .btn {
+    width: 100%;
+  }
+  .trust-hero {
+    padding-bottom: 2.75rem;
+  }
+}
