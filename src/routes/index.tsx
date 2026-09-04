@@ -77,8 +77,8 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <h2>Connected devices can make replenishment part of the workflow.</h2>
-                <p className="lead">Paisa.ai lets a device detect a need, an agent create an authorised order, and payment proceed within limits the owner set, with an auditable record at the end.</p>
+                <h2>Let connected devices handle replenishment and repeat purchases for you.</h2>
+                <p className="lead">Paisa.ai enables the agent in a smart device to make repeat purchases on your behalf, within the limits you set, with an auditable record at the end.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -95,39 +95,6 @@ function Home() {
               <div className="eyebrow">Household workflow</div>
               <h2>From detection to an authorised purchase.</h2>
               <HouseholdDemo />
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal className="section">
-          <div className="container glass card" style={{ padding: 40 }}>
-            <div className="eyebrow">01 · Paisa.ai</div>
-            <h2 className="gradient">A control plane for machine-initiated payments.</h2>
-            <p className="lead">
-              Not a wallet for agents. It is infrastructure that makes autonomous spending predictable, constrained and
-              traceable.
-            </p>
-            <div className="signature">
-              <div>
-                DETECT<small>environment</small>
-              </div>
-              <div>
-                DECIDE<small>agent</small>
-              </div>
-              <div>
-                AUTHORISE<small>mandate + policy</small>
-              </div>
-              <div>
-                PAY<small>payment rails</small>
-              </div>
-              <div>
-                PROVE<small>evidence</small>
-              </div>
-            </div>
-            <div className="actions">
-              <Link className="btn btn-primary" to="/trust">
-                Understand the controls →
-              </Link>
             </div>
           </div>
         </Reveal>
