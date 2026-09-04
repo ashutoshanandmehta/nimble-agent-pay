@@ -15,42 +15,144 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Paisa.ai — Agentic Commerce for Smart Devices" },
       {
         property: "og:description",
-        content: "One integration gives smart devices an agent that can reason, act, and safely pay.",
+        content:
+          "One integration gives smart devices an agent that can reason, act, and safely pay.",
       },
     ],
   }),
   component: Home,
 });
 
-const HOME_CASES = [
-  ["⌁", "Diagnostic analysers", "Replenish critical reagents.", "Lab equipment reorders inside pre-authorised budget bounds."],
-  ["▦", "Vending & edge inventory", "Restock from the edge.", "Machines buy from suppliers without becoming unrestricted payment accounts."],
-  ["◉", "Industrial equipment", "Keep the system running.", "Telemetry triggers consumable replenishment within the equipment agent's authority."],
+const HERO_SCENES = [
+  "images/connected-kitchen.jpg",
+  "images/industrial-equipment.jpg",
+  "images/edge-inventory.jpg",
+] as const;
+const PILLARS = [
+  ["01", "Agent", "Understands context, reasons about needs, and decides what action to take."],
+  [
+    "02",
+    "Payment",
+    "Authorizes and executes the transaction through the appropriate payment infrastructure.",
+  ],
+  [
+    "03",
+    "Control",
+    "Enforces the authority, limits, and policies governing autonomous transactions.",
+  ],
+] as const;
+const USE_CASES = [
+  [
+    "⌁",
+    "Diagnostic analysers",
+    "Detect consumable requirements → initiate replenishment → complete an approved purchase.",
+  ],
+  [
+    "▦",
+    "Vending & edge inventory",
+    "Detect low inventory → decide replenishment → pay the supplier.",
+  ],
+  [
+    "◉",
+    "Industrial equipment",
+    "Identify a required component → evaluate the action → execute authorized procurement.",
+  ],
+  ["⌂", "Household devices", "Detect recurring needs → reason about replenishment → purchase."],
 ] as const;
 
-const HERO_SCENES = [
-  { name: "Connected home", detail: "A household device detects a need before anyone has to open a shopping app.", image: "images/connected-kitchen.jpg" },
-  { name: "Industrial equipment", detail: "A machine can replenish what keeps an operation running within its defined authority.", image: "images/industrial-equipment.jpg" },
-  { name: "Edge devices", detail: "Connected hardware can purchase exactly what it needs, without becoming an unrestricted account.", image: "images/edge-inventory.jpg" },
-] as const;
+function ArchitectureDiagram() {
+  return (
+    <div
+      className="architecture-diagram glass"
+      aria-label="Smart device integrates with Paisa.ai, which provides an AI agent and payment infrastructure to transact with a merchant"
+    >
+      <div className="architecture-node device-node">
+        <span>Smart device</span>
+        <small>Device signal</small>
+      </div>
+      <div className="architecture-connector">
+        <span>One integration</span>
+        <i>↓</i>
+      </div>
+      <div className="paisa-core">
+        <div className="paisa-brand">Paisa.ai</div>
+        <div className="core-module">
+          <b>AI agent</b>
+          <span>Understand → Reason → Decide → Act</span>
+        </div>
+        <div className="core-arrow">↓</div>
+        <div className="core-module payment-module">
+          <b>Payment infrastructure</b>
+          <span>Authorize → Pay → Verify</span>
+        </div>
+      </div>
+      <div className="architecture-connector">
+        <i>↓</i>
+      </div>
+      <div className="architecture-node merchant-node">
+        <span>Merchant</span>
+        <small>Transaction completed</small>
+      </div>
+    </div>
+  );
+}
+
+function DemoPlaceholder() {
+  return (
+    <div
+      className="demo-placeholder glass"
+      role="group"
+      aria-label="Paisa.ai product demonstration placeholder"
+    >
+      <div className="demo-placeholder-top">
+        <span className="demo-status">
+          <i /> Product demo
+        </span>
+        <span>Final video coming soon</span>
+      </div>
+      <div className="demo-screen">
+        <button
+          className="demo-play"
+          type="button"
+          aria-label="Product demo video will be available soon"
+          disabled
+        >
+          ▶
+        </button>
+        <div className="demo-sequence" aria-hidden="true">
+          <span>Device signal</span>
+          <i>→</i>
+          <span>Agent reasoning</span>
+          <i>→</i>
+          <span>Decision</span>
+          <i>→</i>
+          <span>Payment authorization</span>
+          <i>→</i>
+          <span>Evidence</span>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 function Home() {
   const [scene, setScene] = useState(0);
-
   useEffect(() => {
-    const t = setInterval(() => setScene((i) => (i + 1) % HERO_SCENES.length), 5000);
-    return () => clearInterval(t);
+    const timer = setInterval(
+      () => setScene((current) => (current + 1) % HERO_SCENES.length),
+      5000,
+    );
+    return () => clearInterval(timer);
   }, []);
-
   return (
     <>
       <SiteHeader />
       <main>
-        <section className="hero">
+        <section className="hero home-hero">
           <div
             className="hero-image"
             aria-hidden="true"
-            style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${HERO_SCENES[scene].image})` }}
+            style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${HERO_SCENES[scene]})` }}
           />
           <div className="container hero-grid">
             <div className="hero-copy">
@@ -58,8 +160,9 @@ function Home() {
                 Give your devices the ability to think, act, and pay.
               </h1>
               <p className="lead">
-                Paisa.ai gives smart devices a complete autonomous commerce layer: an AI agent that reasons and acts,
-                combined with payment infrastructure that safely executes transactions within defined authority.
+                Paisa.ai gives smart devices a complete autonomous commerce layer: an AI agent that
+                reasons and acts, combined with payment infrastructure that safely executes
+                transactions within defined authority.
               </p>
               <div className="actions">
                 <DemoCta />
@@ -68,58 +171,223 @@ function Home() {
                 </Link>
               </div>
             </div>
+            <div
+              className="hero-system glass"
+              aria-label="Smart device to Paisa.ai to autonomous commerce"
+            >
+              <div>
+                <b>Smart device</b>
+                <span>Context + signal</span>
+              </div>
+              <i>→</i>
+              <div className="hero-system-paisa">
+                <b>Paisa.ai</b>
+                <span>Agent + payment</span>
+              </div>
+              <i>→</i>
+              <div>
+                <b>Autonomous commerce</b>
+                <span>Action + transaction</span>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="product-definition" aria-label="What Paisa.ai provides">
-          <div className="container">
-            <p className="product-definition-title">Paisa.ai is the agentic commerce layer for smart devices.</p>
-            <p>
-              One integration gives a device an autonomous agent that understands context, reasons about what to do,
-              and completes transactions through Paisa.ai&apos;s payment infrastructure.
-            </p>
-          </div>
-        </section>
-
-        <Reveal className="section home-use-cases">
+        <Reveal className="section home-integration">
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <h2>Let connected devices handle replenishment and repeat purchases for you.</h2>
-                <p className="lead">Paisa.ai enables the agent in a smart device to make repeat purchases on your behalf, within the limits you set, with an auditable record at the end.</p>
+                <div className="eyebrow">One Paisa.ai integration</div>
+                <h2>One integration. Everything your device needs to transact.</h2>
+                <p className="lead">
+                  Paisa.ai combines the autonomous agent and financial infrastructure required for
+                  smart devices to reason, act, and complete real-world transactions.
+                </p>
               </div>
             </div>
-            <div className="grid-3">
-              {HOME_CASES.map(([icon, name, title, body]) => (
-                <article className="glass use-case" key={name}>
-                  <div className="machine">{icon}</div>
-                  <div className="eyebrow">{name}</div>
+            <div className="integration-pillars">
+              {PILLARS.map(([number, title, copy]) => (
+                <article className="glass integration-pillar" key={title}>
+                  <span>{number}</span>
                   <h3>{title}</h3>
-                  <p>{body}</p>
+                  <p>{copy}</p>
                 </article>
               ))}
             </div>
-            <div className="home-household">
-              <div className="eyebrow">Household workflow</div>
-              <h2>From detection to an authorised purchase.</h2>
-              <HouseholdDemo />
+            <p className="integration-unifier">
+              <b>One integrated Paisa.ai service.</b> Your device does not have to assemble the
+              agent and the transaction layer separately.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal className="section architecture-section">
+          <div className="container architecture-layout">
+            <div>
+              <div className="eyebrow">The complete layer</div>
+              <h2>The device integrates once. Paisa.ai handles the agent and the transaction.</h2>
+              <p className="lead">
+                Intelligence and financial execution arrive together, with clear authority around
+                every autonomous action.
+              </p>
+              <Link className="link-arrow" to="/trust">
+                Explore the architecture →
+              </Link>
+            </div>
+            <ArchitectureDiagram />
+          </div>
+        </Reveal>
+
+        <Reveal className="section think-section">
+          <div className="container">
+            <div className="section-head">
+              <div className="copy">
+                <div className="eyebrow">From context to commerce</div>
+                <h2>Think. Act. Pay.</h2>
+                <p className="lead">
+                  The AI agent provides intelligence. Paisa.ai provides financial agency and
+                  execution.
+                </p>
+              </div>
+            </div>
+            <div className="think-grid">
+              <article className="glass think-card">
+                <span>01</span>
+                <h3>Think</h3>
+                <p>The Paisa.ai agent interprets device state, context, and goals.</p>
+              </article>
+              <article className="glass think-card">
+                <span>02</span>
+                <h3>Act</h3>
+                <p>The agent determines the appropriate action and creates a purchase intent.</p>
+              </article>
+              <article className="glass think-card">
+                <span>03</span>
+                <h3>Pay</h3>
+                <p>
+                  Paisa.ai validates that intent against financial authority and executes the
+                  transaction.
+                </p>
+              </article>
             </div>
           </div>
         </Reveal>
 
-        <Reveal className="section">
-          <div className="container glass rail-explainer">
-            <div className="eyebrow">How money moves</div>
-            <h2>Two rails, one controlled purchase.</h2>
-            <p className="lead">The loading rail moves the approved amount from UPI to the virtual card. The spending rail then pays the merchant from that card. Paisa.ai keeps both steps tied to the same authority and order.</p>
-            <div className="rail-animation" aria-label="Animated payment flow from UPI to virtual card to merchant bank">
-              <div className="rail-station"><span>1</span><b>UPI account</b><small>Approved funds</small></div>
-              <div className="rail-path loading"><i /><em>Loading rail</em><small>UPI → virtual card</small></div>
-              <div className="rail-station card-station"><span>2</span><b>Virtual card</b><small>Immediate Transfer</small></div>
-              <div className="rail-path spending"><i /><em>Spending rail</em><small>Card → merchant bank</small></div>
-              <div className="rail-station merchant-station"><span>3</span><b>Merchant bank</b><small>Payment received</small></div>
+        <Reveal className="section household-section">
+          <div className="container">
+            <div className="section-head">
+              <div className="copy">
+                <div className="eyebrow">A concrete device workflow</div>
+                <h2>Your device sees a need. Paisa.ai takes care of the rest.</h2>
+                <p className="lead">
+                  Milk running low → the Paisa.ai agent reasons about replenishment → validates the
+                  mandate → authorizes a ₹72 purchase → records the transaction.
+                </p>
+              </div>
             </div>
-            <Link className="link-arrow" to="/how-it-works">See the complete payment lifecycle →</Link>
+            <HouseholdDemo />
+          </div>
+        </Reveal>
+
+        <Reveal className="section demo-section">
+          <div className="container demo-layout">
+            <div>
+              <div className="eyebrow">Product demonstration</div>
+              <h2>See Paisa.ai in action.</h2>
+              <p className="lead">
+                From a device signal to an autonomous purchase, see the complete agent-to-payment
+                flow.
+              </p>
+            </div>
+            <DemoPlaceholder />
+          </div>
+        </Reveal>
+
+        <Reveal className="section mental-model-section">
+          <div className="container">
+            <div className="section-head">
+              <div className="copy">
+                <div className="eyebrow">What your team gets</div>
+                <h2>Your device. One integration. An autonomous commerce layer.</h2>
+              </div>
+            </div>
+            <div className="mental-model-grid">
+              <article className="glass assemble-card">
+                <div className="eyebrow">Without Paisa.ai</div>
+                <h3>Assemble the stack yourself.</h3>
+                <div className="assemble-list">
+                  {[
+                    "Model",
+                    "Agent framework",
+                    "Tooling",
+                    "Payment integration",
+                    "Authorization",
+                    "Transaction handling",
+                    "Audit infrastructure",
+                  ].map((item) => (
+                    <span key={item}>{item}</span>
+                  ))}
+                </div>
+              </article>
+              <article className="glass paisa-stack">
+                <div className="eyebrow">With Paisa.ai</div>
+                <h3>One integration.</h3>
+                <div className="stack-flow">
+                  <b>One integration</b>
+                  <i>↓</i>
+                  <b>Paisa.ai Agent</b>
+                  <i>↓</i>
+                  <b>Paisa.ai Payment Infrastructure</b>
+                  <i>↓</i>
+                  <strong>Autonomous Commerce</strong>
+                </div>
+              </article>
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal className="section use-cases-section">
+          <div className="container">
+            <div className="section-head">
+              <div className="copy">
+                <div className="eyebrow">Built for connected systems</div>
+                <h2>Devices that can detect, decide, and transact.</h2>
+              </div>
+            </div>
+            <div className="use-case-grid">
+              {USE_CASES.map(([icon, title, copy]) => (
+                <article className="glass use-case" key={title}>
+                  <div className="machine">{icon}</div>
+                  <h3>{title}</h3>
+                  <p>{copy}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal className="section trust-preview-section">
+          <div className="container glass trust-preview">
+            <div>
+              <div className="eyebrow">Bounded autonomy</div>
+              <h2>Autonomous does not mean unrestricted.</h2>
+              <p className="lead">
+                Paisa.ai separates agent decision-making from financial authority, so devices can
+                act autonomously within clearly defined mandates.
+              </p>
+              <Link className="link-arrow" to="/trust">
+                Explore Trust &amp; Architecture →
+              </Link>
+            </div>
+            <div className="trust-mini-flow">
+              <b>Agent decides</b>
+              <i>↓</i>
+              <b>Paisa.ai authorizes</b>
+              <i>↓</i>
+              <b>Payment executes</b>
+              <i>↓</i>
+              <b>Evidence recorded</b>
+            </div>
           </div>
         </Reveal>
 
@@ -129,9 +397,23 @@ function Home() {
             <strong>Startup Incubation and Innovation Centre</strong>
             <span>SIIC, IIT Kanpur</span>
           </div>
-          <a href="https://www.iitk.ac.in/innovation-incubation" target="_blank" rel="noopener">Learn about SIIC →</a>
+          <a href="https://www.iitk.ac.in/innovation-incubation" target="_blank" rel="noopener">
+            Learn about SIIC →
+          </a>
         </section>
-
+        <Reveal className="section closing-cta-section">
+          <div className="container glass closing-cta">
+            <div>
+              <div className="eyebrow">Autonomous commerce for smart devices</div>
+              <h2>Give your devices the ability to transact.</h2>
+              <p className="lead">
+                One integration. An autonomous agent and the payment infrastructure to act on its
+                decisions.
+              </p>
+            </div>
+            <DemoCta />
+          </div>
+        </Reveal>
       </main>
       <SiteFooter />
     </>
