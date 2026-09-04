@@ -7,9 +7,21 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  vite: {
+    // GitHub Pages serves this project below the repository name. The workflow
+    // supplies the value; local development stays mounted at the site root.
+    base: process.env.VITE_BASE_PATH ?? "/",
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // The marketing site has no runtime-only data, so generate every static
+    // route at build time for GitHub Pages.
+    prerender: {
+      enabled: true,
+      autoStaticPathsDiscovery: true,
+      crawlLinks: true,
+    },
   },
 });
