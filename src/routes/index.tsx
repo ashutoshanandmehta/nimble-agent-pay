@@ -51,6 +51,11 @@ function Home() {
     return () => clearInterval(t);
   }, []);
 
+  useEffect(() => {
+    const t = setInterval(() => setScene((i) => (i + 1) % HERO_SCENES.length), 5000);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <>
       <SiteHeader />
@@ -70,19 +75,6 @@ function Home() {
                 Agents can decide and act. Moving money is the unresolved part — without handing over unrestricted
                 financial access or asking a human to approve every transaction.
               </p>
-              <div className="hero-scenarios" aria-label="Explore payment scenarios">
-                {HERO_SCENES.map((item, i) => (
-                  <button
-                    key={item.name}
-                    className={`hero-scene${scene === i ? " active" : ""}`}
-                    onClick={() => setScene(i)}
-                    aria-pressed={scene === i}
-                  >
-                    {item.name}
-                  </button>
-                ))}
-              </div>
-              <p className="hero-scene-detail">{HERO_SCENES[scene].detail}</p>
               <div className="actions">
                 <Link className="btn btn-primary" to="/how-it-works">
                   See the payment lifecycle →
