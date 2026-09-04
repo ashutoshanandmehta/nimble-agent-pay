@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { LifecycleFlow } from "@/components/lifecycle-flow";
 
@@ -65,19 +65,6 @@ function HowItWorks() {
           </div>
         </Reveal>
 
-        <Reveal className="section">
-          <div className="container glass card">
-            <div className="eyebrow">Failure handling</div>
-            <h2>Unknown is a state. It is not a reason to retry.</h2>
-            <p className="lead">
-              When a response is lost between debit and merchant credit, reconciliation checks what actually posted on
-              both legs before settling, reversing or closing.
-            </p>
-            <Link className="link-arrow" to="/trust">
-              See the resilience model →
-            </Link>
-          </div>
-        </Reveal>
       </main>
       <SiteFooter note="Bounded authority · verified intent · cross-rail evidence." />
     </>

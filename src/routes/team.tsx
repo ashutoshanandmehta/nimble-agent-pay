@@ -138,20 +138,6 @@ function Team() {
           </div>
         </section>
 
-        <Reveal className="section">
-          <div className="container grid-2">
-            <article className="glass card">
-              <div className="eyebrow">What we build</div>
-              <h2>The layer between a machine's decision and the final payment.</h2>
-              <p>Authority, intent, rail execution and evidence.</p>
-            </article>
-            <article className="glass card">
-              <div className="eyebrow">What we believe</div>
-              <h2>The human defines authority. The agent executes.</h2>
-              <p>Autonomy should remove repetitive approvals without removing financial control.</p>
-            </article>
-          </div>
-        </Reveal>
       </main>
       <SiteFooter note="Paisa.ai · SIIC, IIT Kanpur" />
     </>
