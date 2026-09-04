@@ -31,12 +31,9 @@ function Trust() {
     <>
       <SiteHeader />
       <main>
-        <section className="dark-section" style={{ marginTop: 50, borderRadius: "42px 42px 0 0" }}>
+        <section className="hero" style={{ minHeight: "auto" }}>
           <div className="container">
-            <div className="eyebrow" style={{ color: "#7d8ba3" }}>
-              Trust & architecture
-            </div>
-            <h1 style={{ fontSize: "clamp(3rem,4.5vw,5.5rem)", maxWidth: 1000 }}>
+            <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)", maxWidth: 1000 }}>
               Financial authority that can be constrained, verified and explained.
             </h1>
             <p className="lead">
@@ -67,34 +64,6 @@ function Trust() {
             </div>
           </div>
         </section>
-
-        <Reveal className="section">
-          <div className="container glass card">
-            <div className="eyebrow">Cross-rail receipt</div>
-            <h2>Mandate → Agent → Order → Payment → Receipt.</h2>
-            <p className="lead">
-              A single signed record binds the mandate, the agent's order and both payment legs, so the transaction
-              arrives with enough evidence to be checked on either rail.
-            </p>
-            <div className="evidence-chain">
-              <div>
-                Mandate<small>authority</small>
-              </div>
-              <div>
-                Agent<small>identity</small>
-              </div>
-              <div>
-                Order<small>intent</small>
-              </div>
-              <div>
-                Payment<small>two rails</small>
-              </div>
-              <div>
-                Receipt<small>evidence</small>
-              </div>
-            </div>
-          </div>
-        </Reveal>
 
         <section className="section">
           <div className="container grid-2">
@@ -140,7 +109,7 @@ function Trust() {
           </div>
         </Reveal>
       </main>
-      <SiteFooter note="Bounded authority · verifiable intent · cross-rail evidence." />
+      <SiteFooter />
     </>
   );
 }

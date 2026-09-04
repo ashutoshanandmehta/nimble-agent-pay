@@ -28,7 +28,6 @@ function HowItWorks() {
       <main>
         <section className="hero" style={{ minHeight: "auto", paddingBottom: 30 }}>
           <div className="container">
-            <div className="eyebrow">How a Paisa.ai payment works</div>
             <h1 className="gradient" style={{ maxWidth: 950 }}>
               Detect → Decide → Authorise → Pay → Prove.
             </h1>
@@ -66,7 +65,7 @@ function HowItWorks() {
         </Reveal>
 
       </main>
-      <SiteFooter note="Bounded authority · verified intent · cross-rail evidence." />
+      <SiteFooter />
     </>
   );
 }

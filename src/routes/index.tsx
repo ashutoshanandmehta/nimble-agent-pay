@@ -125,10 +125,7 @@ function Home() {
         </section>
 
       </main>
-      <SiteFooter
-        note="Payment infrastructure for autonomous agents."
-        extra={<Link to="/team">Team →</Link>}
-      />
+      <SiteFooter />
     </>
   );
 }

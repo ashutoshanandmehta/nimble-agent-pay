@@ -56,7 +56,7 @@ export function SiteHeader() {
   );
 }
 
-export function SiteFooter({ note, extra }: { note: string; extra?: ReactNode }) {
+export function SiteFooter() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
@@ -65,10 +65,10 @@ export function SiteFooter({ note, extra }: { note: string; extra?: ReactNode })
             <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="" /> <span>Paisa.ai</span>
           </div>
           <div className="footer-note" style={{ marginTop: 8 }}>
-            {note}
+            Payment infrastructure for autonomous agents.
           </div>
         </div>
-        {extra ? <div className="footer-note">{extra}</div> : null}
+        <div className="footer-note">© 2026 Paisa.ai</div>
       </div>
     </footer>
   );

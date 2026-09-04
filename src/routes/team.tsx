@@ -62,7 +62,6 @@ function Team() {
         <section className="hero" style={{ minHeight: "auto" }}>
           <div className="container">
             <div>
-              <div className="eyebrow">Paisa.ai</div>
               <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)" }}>
                 Building payment infrastructure for autonomous commerce.
               </h1>
@@ -76,7 +75,6 @@ function Team() {
 
         <section className="section">
           <div className="container">
-            <div className="eyebrow">Leadership & technical advisors</div>
             <h2>Founders & advisors.</h2>
             <div className="people" style={{ marginTop: 24 }}>
               {PEOPLE.map((p) => (
@@ -124,7 +122,7 @@ function Team() {
         </section>
 
       </main>
-      <SiteFooter note="Paisa.ai · SIIC, IIT Kanpur" />
+      <SiteFooter />
     </>
   );
 }

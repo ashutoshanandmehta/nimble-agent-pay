@@ -96,15 +96,8 @@ export function LifecycleFlow() {
     <div className="glass flow-card">
       <div className="flow-top">
         <div>
-          <div className="eyebrow">Interactive payment lifecycle</div>
           <h2>See exactly where authority and money move.</h2>
           <p>Authority is established once, the order is checked before funds move, and both rails are recorded.</p>
-        </div>
-        <div className="flow-stats">
-          <span>9 events</span>
-          <span>4 actors</span>
-          <span>2 rails</span>
-          <span>1 exposure window</span>
         </div>
       </div>
 

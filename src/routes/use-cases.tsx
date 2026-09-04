@@ -157,7 +157,7 @@ function UseCases() {
           </div>
         </Reveal>
       </main>
-      <SiteFooter note="From connected machines to autonomous homes." />
+      <SiteFooter />
     </>
   );
 }
