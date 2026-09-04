@@ -76,7 +76,7 @@ export function SiteFooter() {
             <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="" /> <span>Paisa.ai</span>
           </div>
           <div className="footer-note" style={{ marginTop: 8 }}>
-            The agentic commerce layer for smart devices.
+            Payment infrastructure for autonomous agents.
           </div>
         </div>
         <div className="footer-note">© 2026 Paisa.ai</div>
