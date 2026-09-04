@@ -77,19 +77,29 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Paisa.ai — Payment Infrastructure for Autonomous Agents" },
+      { title: "Paisa.ai — Agentic Commerce for Smart Devices" },
       {
         name: "description",
-        content: "Grant, enforce and audit bounded financial authority for AI agents and connected devices.",
+        content:
+          "One integration gives smart devices an autonomous agent and payment infrastructure to reason, act, and safely transact within defined authority.",
       },
       { name: "author", content: "Paisa.ai" },
-      { property: "og:title", content: "Paisa.ai — Payment Infrastructure for Autonomous Agents" },
+      { property: "og:title", content: "Paisa.ai — Agentic Commerce for Smart Devices" },
       {
         property: "og:description",
-        content: "Grant, enforce and audit bounded financial authority for AI agents and connected devices.",
+        content: "Agent + payment infrastructure for smart devices, through one Paisa.ai integration.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Paisa.ai" },
+      {
+        property: "og:image",
+        content: "https://ashutoshanandmehta.github.io/nimble-agent-pay/images/connected-kitchen.jpg",
+      },
       { name: "twitter:card", content: "summary_large_image" },
+      {
+        name: "twitter:image",
+        content: "https://ashutoshanandmehta.github.io/nimble-agent-pay/images/connected-kitchen.jpg",
+      },
     ],
     links: [
       {
@@ -118,6 +128,9 @@ function RootShell({ children }: { children: ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         {children}
         <Scripts />
       </body>

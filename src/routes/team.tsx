@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -8,10 +8,10 @@ export const Route = createFileRoute("/team")({
       {
         name: "description",
         content:
-          "The founders and technical advisors behind Paisa.ai, payment infrastructure for autonomous agents, incubated at SIIC, IIT Kanpur.",
+          "The founders and technical advisors behind Paisa.ai, building the autonomous commerce layer for smart devices.",
       },
       { property: "og:title", content: "Team — Paisa.ai" },
-      { property: "og:description", content: "Founders and advisors building the settlement layer for machine-initiated commerce." },
+      { property: "og:description", content: "Founders and advisors building autonomous commerce for smart devices." },
     ],
   }),
   component: Team,
@@ -58,16 +58,16 @@ function Team() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="hero" style={{ minHeight: "auto" }}>
           <div className="container">
             <div>
               <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)" }}>
-                Building payment infrastructure for autonomous commerce.
+                Building the autonomous commerce layer for smart devices.
               </h1>
               <p className="lead">
-                We build the verification and settlement layer that lets agents and connected devices transact within
-                the authority a human actually granted.
+                Paisa.ai brings an autonomous agent and payment infrastructure together, so connected devices can
+                act within the financial authority a human actually granted.
               </p>
             </div>
           </div>
@@ -120,6 +120,20 @@ function Team() {
             </div>
           </div>
         </section>
+
+        <Reveal className="section">
+          <div className="container glass closing-cta">
+            <div>
+              <div className="eyebrow">Work with Paisa.ai</div>
+              <h2>Give your devices the ability to transact.</h2>
+              <p className="lead">
+                One integration gives your device an autonomous agent and the payment infrastructure to act on its
+                decisions.
+              </p>
+            </div>
+            <DemoCta />
+          </div>
+        </Reveal>
 
       </main>
       <SiteFooter />

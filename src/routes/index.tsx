@@ -74,7 +74,7 @@ function Home() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="hero home-hero">
           <div
             className="hero-image"

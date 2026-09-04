@@ -51,7 +51,7 @@ function HowItWorks() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="hero how-hero">
           <div className="container">
             <h1 className="gradient">From device intelligence to autonomous payment.</h1>

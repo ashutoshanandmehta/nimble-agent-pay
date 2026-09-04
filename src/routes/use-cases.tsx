@@ -30,7 +30,7 @@ function UseCases() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="use-hero">
           <div className="container">
             <div className="eyebrow">Autonomous commerce</div>

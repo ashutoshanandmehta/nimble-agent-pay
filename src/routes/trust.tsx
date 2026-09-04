@@ -64,7 +64,7 @@ function Trust() {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main-content">
         <section className="hero trust-hero">
           <div className="container">
             <h1 className="gradient">Autonomous, without unrestricted access.</h1>

@@ -19,16 +19,21 @@ export function DemoCta({ className = "btn btn-primary" }: { className?: string 
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (localStorage.getItem("paisa-theme") === "dark") root.classList.add("dark");
+    const isDark = localStorage.getItem("paisa-theme") === "dark";
+    root.classList.toggle("dark", isDark);
+    setDark(isDark);
   }, []);
 
   const toggleTheme = () => {
     const root = document.documentElement;
     root.classList.toggle("dark");
-    localStorage.setItem("paisa-theme", root.classList.contains("dark") ? "dark" : "light");
+    const isDark = root.classList.contains("dark");
+    localStorage.setItem("paisa-theme", isDark ? "dark" : "light");
+    setDark(isDark);
   };
 
   return (
@@ -47,22 +52,34 @@ export function SiteHeader() {
         </nav>
         <div className="nav-actions">
           <DemoCta className="nav-demo" />
-          <button className="icon-btn" aria-label="Toggle theme" onClick={toggleTheme}>
+          <button className="icon-btn" aria-label="Toggle dark mode" aria-pressed={dark} onClick={toggleTheme}>
             ◐
           </button>
-          <button className="menu-btn" aria-label="Menu" onClick={() => setOpen((v) => !v)}>
+          <button
+            className="menu-btn"
+            aria-label="Toggle navigation menu"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpen((v) => !v)}
+          >
             ☰
           </button>
         </div>
       </div>
-      <div className={`container glass mobile-menu${open ? " show" : ""}`}>
+      <nav id="mobile-navigation" className={`container glass mobile-menu${open ? " show" : ""}`} aria-label="Mobile navigation">
         {NAV.map((item) => (
-          <Link key={item.to} to={item.to} onClick={() => setOpen(false)}>
+          <Link
+            key={item.to}
+            to={item.to}
+            activeProps={{ className: "active" }}
+            activeOptions={{ exact: item.to === "/" }}
+            onClick={() => setOpen(false)}
+          >
             {item.label}
           </Link>
         ))}
         <DemoCta className="mobile-demo" />
-      </div>
+      </nav>
     </header>
   );
 }
@@ -71,15 +88,23 @@ export function SiteFooter() {
   return (
     <footer className="footer">
       <div className="container footer-inner">
-        <div>
+        <div className="footer-brand-block">
           <div className="brand">
             <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="" /> <span>Paisa.ai</span>
           </div>
           <div className="footer-note" style={{ marginTop: 8 }}>
-            Payment infrastructure for autonomous agents.
+            Agentic commerce infrastructure for smart devices.
           </div>
         </div>
-        <div className="footer-note">© 2026 Paisa.ai</div>
+        <nav className="footer-links" aria-label="Footer navigation">
+          {NAV.map((item) => (
+            <Link key={item.to} to={item.to} activeOptions={{ exact: item.to === "/" }}>
+              {item.label}
+            </Link>
+          ))}
+          <DemoCta className="footer-demo" />
+        </nav>
+        <div className="footer-note footer-copyright">© 2026 Paisa.ai</div>
       </div>
     </footer>
   );
