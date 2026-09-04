@@ -1,21 +1,21 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { HouseholdDemo } from "@/components/household-demo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Paisa.ai — Payment Infrastructure for Autonomous Agents" },
+      { title: "Paisa.ai — Agentic Commerce for Smart Devices" },
       {
         name: "description",
         content:
-          "Paisa.ai grants, enforces and audits bounded financial authority so AI agents and connected devices can pay within limits a human set.",
+          "Paisa.ai gives smart devices an autonomous agent and payment infrastructure to safely act and transact within defined authority.",
       },
-      { property: "og:title", content: "Paisa.ai — Payment Infrastructure for Autonomous Agents" },
+      { property: "og:title", content: "Paisa.ai — Agentic Commerce for Smart Devices" },
       {
         property: "og:description",
-        content: "Bounded authority, verified intent and cross-rail evidence for machine-initiated payments.",
+        content: "One integration gives smart devices an agent that can reason, act, and safely pay.",
       },
     ],
   }),
@@ -55,21 +55,29 @@ function Home() {
           <div className="container hero-grid">
             <div className="hero-copy">
               <h1 className="gradient" style={{ marginTop: 14 }}>
-                Payment Infrastructure for Autonomous Agents.
+                Give your devices the ability to think, act, and pay.
               </h1>
               <p className="lead">
-                Agents can already make decisions and take action. Paisa.ai lets them pay safely, without giving them
-                open-ended financial access or asking a person to approve every purchase.
+                Paisa.ai gives smart devices a complete autonomous commerce layer: an AI agent that reasons and acts,
+                combined with payment infrastructure that safely executes transactions within defined authority.
               </p>
               <div className="actions">
-                <Link className="btn btn-primary" to="/how-it-works">
-                  See the payment lifecycle →
-                </Link>
-                <Link className="btn btn-soft" to="/trust">
-                  Explore the trust layer
+                <DemoCta />
+                <Link className="btn btn-soft" to="/how-it-works">
+                  See How It Works
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="product-definition" aria-label="What Paisa.ai provides">
+          <div className="container">
+            <p className="product-definition-title">Paisa.ai is the agentic commerce layer for smart devices.</p>
+            <p>
+              One integration gives a device an autonomous agent that understands context, reasons about what to do,
+              and completes transactions through Paisa.ai&apos;s payment infrastructure.
+            </p>
           </div>
         </section>
 

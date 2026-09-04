@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { GOOGLE_FORM_URL } from "@/lib/site-config";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -7,6 +8,14 @@ const NAV = [
   { to: "/trust", label: "Trust & architecture" },
   { to: "/team", label: "Team" },
 ] as const;
+
+export function DemoCta({ className = "btn btn-primary" }: { className?: string }) {
+  return (
+    <a className={className} href={GOOGLE_FORM_URL} target="_blank" rel="noopener noreferrer">
+      Request Demo
+    </a>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -37,6 +46,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="nav-actions">
+          <DemoCta className="nav-demo" />
           <button className="icon-btn" aria-label="Toggle theme" onClick={toggleTheme}>
             ◐
           </button>
@@ -51,6 +61,7 @@ export function SiteHeader() {
             {item.label}
           </Link>
         ))}
+        <DemoCta className="mobile-demo" />
       </div>
     </header>
   );
@@ -65,7 +76,7 @@ export function SiteFooter() {
             <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="" /> <span>Paisa.ai</span>
           </div>
           <div className="footer-note" style={{ marginTop: 8 }}>
-            Payment infrastructure for autonomous agents.
+            The agentic commerce layer for smart devices.
           </div>
         </div>
         <div className="footer-note">© 2026 Paisa.ai</div>
