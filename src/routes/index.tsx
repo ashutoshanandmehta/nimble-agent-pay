@@ -72,8 +72,8 @@ function Home() {
                 Payment Infrastructure for Autonomous Agents.
               </h1>
               <p className="lead">
-                Agents can decide and act. Moving money is the unresolved part — without handing over unrestricted
-                financial access or asking a human to approve every transaction.
+                Agents can already make decisions and take action. Paisa.ai lets them pay safely, without giving them
+                open-ended financial access or asking a person to approve every purchase.
               </p>
               <div className="actions">
                 <Link className="btn btn-primary" to="/how-it-works">
@@ -93,7 +93,6 @@ function Home() {
                     Authority, not access.
                   </div>
                 </div>
-                <span className="status">ENFORCED · AUDITABLE</span>
               </div>
               <div className="authority">
                 <div className="mini">
@@ -124,7 +123,6 @@ function Home() {
                   </div>
                 ))}
               </div>
-              <div className="demo-foot">Human defines authority. Infrastructure enforces it. The agent executes within it.</div>
             </div>
           </div>
         </section>
