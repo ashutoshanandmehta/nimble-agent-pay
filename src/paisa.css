@@ -53,3 +53,6 @@ html{font-size:12px}
   place-items:center;font-weight:700;letter-spacing:.04em;
   background:linear-gradient(140deg,#dfe7ff,#efe6ff);color:#2b3550;flex:0 0 auto;
 }
+
+/* Ambient background: a restrained field of wandering particles behind every page. */
+.site-shell{position:relative;isolation:isolate;min-height:100vh}.site-shell>header,.site-shell>main,.site-shell>footer{position:relative;z-index:1}.ambient-dots{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}

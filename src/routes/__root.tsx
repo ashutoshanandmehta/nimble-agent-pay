@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -125,13 +125,89 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+function AnimatedDotField() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const context = canvas?.getContext("2d");
+    if (!canvas || !context) return;
+
+    type Particle = { x: number; y: number; vx: number; vy: number; radius: number; color: number };
+    let particles: Particle[] = [];
+    let frame = 0;
+    let width = 0;
+    let height = 0;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const reset = () => {
+      const ratio = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * ratio);
+      canvas.height = Math.round(height * ratio);
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const count = width < 700 ? 18 : 34;
+      particles = Array.from({ length: count }, (_, color) => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.34,
+        vy: (Math.random() - 0.5) * 0.34,
+        radius: 1.8 + Math.random() * 2.2,
+        color: color % 3,
+      }));
+    };
+
+    const draw = () => {
+      const isDark = document.documentElement.classList.contains("dark");
+      const colors = isDark
+        ? ["rgba(141,169,255,.34)", "rgba(112,222,209,.31)", "rgba(192,167,255,.32)"]
+        : ["rgba(62,91,190,.32)", "rgba(48,174,151,.28)", "rgba(137,86,193,.27)"];
+      context.clearRect(0, 0, width, height);
+      for (const dot of particles) {
+        dot.x += dot.vx;
+        dot.y += dot.vy;
+        if (dot.x <= dot.radius || dot.x >= width - dot.radius) dot.vx *= -1;
+        if (dot.y <= dot.radius || dot.y >= height - dot.radius) dot.vy *= -1;
+        dot.x = Math.max(dot.radius, Math.min(width - dot.radius, dot.x));
+        dot.y = Math.max(dot.radius, Math.min(height - dot.radius, dot.y));
+        context.beginPath();
+        context.fillStyle = colors[dot.color]!;
+        context.shadowColor = colors[dot.color]!;
+        context.shadowBlur = 14;
+        context.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+        context.fill();
+      }
+      context.shadowBlur = 0;
+      if (!reduceMotion) frame = requestAnimationFrame(draw);
+    };
+
+    reset();
+    draw();
+    window.addEventListener("resize", reset);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("resize", reset);
+    };
+  }, []);
+
+  return (
+    <canvas className="ambient-dots" ref={canvasRef} aria-hidden="true" />
+  );
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="site-shell">
+        <AnimatedDotField />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+      </div>
     </QueryClientProvider>
   );
 }
