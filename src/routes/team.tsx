@@ -60,7 +60,7 @@ function Team() {
       <SiteHeader />
       <main>
         <section className="hero" style={{ minHeight: "auto" }}>
-          <div className="container company-layout">
+          <div className="container">
             <div>
               <div className="eyebrow">Paisa.ai</div>
               <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)" }}>
@@ -71,21 +71,6 @@ function Team() {
                 the authority a human actually granted.
               </p>
             </div>
-            <aside className="glass card">
-              <div className="eyebrow">Incubated at IIT Kanpur</div>
-              <h2 style={{ fontSize: 30 }}>Startup Incubation and Innovation Centre</h2>
-              <p>
-                Paisa.ai is incubated by <strong>SIIC, IIT Kanpur</strong>.
-              </p>
-              <a
-                className="link-arrow"
-                href="https://www.iitk.ac.in/innovation-incubation"
-                target="_blank"
-                rel="noopener"
-              >
-                SIIC / IIT Kanpur →
-              </a>
-            </aside>
           </div>
         </section>
 

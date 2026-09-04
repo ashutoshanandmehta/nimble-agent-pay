@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/how-it-works", label: "How it works" },
-  { to: "/use-cases", label: "Use cases" },
   { to: "/trust", label: "Trust & architecture" },
   { to: "/team", label: "Team" },
 ] as const;

@@ -50,7 +50,6 @@ function Home() {
         <section className="hero">
           <div className="container hero-grid">
             <div className="hero-copy">
-              <div className="eyebrow">Paisa.ai · Autonomous commerce infrastructure</div>
               <h1 className="gradient" style={{ marginTop: 14 }}>
                 Payment Infrastructure for Autonomous Agents.
               </h1>
@@ -117,10 +116,10 @@ function Home() {
             <div className="section-head">
               <div className="copy">
                 <div className="eyebrow">What Paisa.ai enables</div>
+                <p className="home-use-heading">Connected devices become active participants in household commerce.</p>
                 <h2>When machines can safely pay, replenishment becomes part of the workflow.</h2>
                 <p className="lead">Paisa.ai lets connected systems detect a need, make an authorised purchase and leave an auditable record.</p>
               </div>
-              <Link className="link-arrow" to="/use-cases">Explore use cases →</Link>
             </div>
             <div className="grid-3">
               {HOME_CASES.map(([icon, name, title, body]) => (
@@ -164,9 +163,6 @@ function Home() {
               <Link className="btn btn-primary" to="/trust">
                 Understand the controls →
               </Link>
-              <Link className="btn btn-soft" to="/use-cases">
-                See the applications
-              </Link>
             </div>
           </div>
         </Reveal>
@@ -195,14 +191,19 @@ function Home() {
           </div>
         </Reveal>
 
+        <section className="container siic-ribbon" aria-label="Paisa.ai incubation">
+          <div className="eyebrow">Incubated at IIT Kanpur</div>
+          <div>
+            <strong>Startup Incubation and Innovation Centre</strong>
+            <span>SIIC, IIT Kanpur</span>
+          </div>
+          <a href="https://www.iitk.ac.in/innovation-incubation" target="_blank" rel="noopener">Learn about SIIC →</a>
+        </section>
+
       </main>
       <SiteFooter
         note="Payment infrastructure for autonomous agents."
-        extra={
-          <>
-            Incubated at SIIC, IIT Kanpur · <Link to="/team">Team →</Link>
-          </>
-        }
+        extra={<Link to="/team">Team →</Link>}
       />
     </>
   );

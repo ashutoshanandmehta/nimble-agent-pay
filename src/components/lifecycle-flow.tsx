@@ -194,24 +194,27 @@ export function LifecycleFlow() {
         </div>
       )}
 
-      <div className="flow-info">
-        <div className="info-box">
-          <div className="k">STEP {step + 1} / 9</div>
-          <h3>{e.title}</h3>
-          <p>{e.explain ?? "This stage is executed by the payment infrastructure within the authority already established."}</p>
-        </div>
-        <div className="info-box">
-          <div className="k">MONEY LOCATION</div>
-          <div className="money">{e.money}</div>
-          <div className="path">{e.path} · {e.sub}</div>
-        </div>
-      </div>
-
-      <div className="legend">
-        <span><i className="u-line" />UPI funding leg</span>
-        <span><i className="c-line" />Card payment leg</span>
-        <span><i className="r-line" />Return / sweep</span>
-      </div>
+      {tab === "sequence" && (
+        <>
+          <div className="flow-info">
+            <div className="info-box">
+              <div className="k">STEP {step + 1} / 9</div>
+              <h3>{e.title}</h3>
+              <p>{e.explain ?? "This stage is executed by the payment infrastructure within the authority already established."}</p>
+            </div>
+            <div className="info-box">
+              <div className="k">MONEY LOCATION</div>
+              <div className="money">{e.money}</div>
+              <div className="path">{e.path} · {e.sub}</div>
+            </div>
+          </div>
+          <div className="legend">
+            <span><i className="u-line" />UPI funding leg</span>
+            <span><i className="c-line" />Card payment leg</span>
+            <span><i className="r-line" />Return / sweep</span>
+          </div>
+        </>
+      )}
     </div>
   );
 }
