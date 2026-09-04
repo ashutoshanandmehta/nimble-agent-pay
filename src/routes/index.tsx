@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { HouseholdDemo } from "@/components/household-demo";
 import { PaisaArchitectureDiagram } from "@/components/paisa-architecture";
+import { ProductDemo } from "@/components/product-demo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -60,44 +61,6 @@ const USE_CASES = [
   ],
   ["⌂", "Household devices", "Detect recurring needs → reason about replenishment → purchase."],
 ] as const;
-
-function DemoPlaceholder() {
-  return (
-    <div
-      className="demo-placeholder glass"
-      role="group"
-      aria-label="Paisa.ai product demonstration placeholder"
-    >
-      <div className="demo-placeholder-top">
-        <span className="demo-status">
-          <i /> Product demo
-        </span>
-        <span>Final video coming soon</span>
-      </div>
-      <div className="demo-screen">
-        <button
-          className="demo-play"
-          type="button"
-          aria-label="Product demo video will be available soon"
-          disabled
-        >
-          ▶
-        </button>
-        <div className="demo-sequence" aria-hidden="true">
-          <span>Device signal</span>
-          <i>→</i>
-          <span>Agent reasoning</span>
-          <i>→</i>
-          <span>Decision</span>
-          <i>→</i>
-          <span>Payment authorization</span>
-          <i>→</i>
-          <span>Evidence</span>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function Home() {
   const [scene, setScene] = useState(0);
@@ -237,6 +200,46 @@ function Home() {
           </div>
         </Reveal>
 
+        <Reveal className="section demo-section">
+          <div className="container demo-layout">
+            <div>
+              <div className="eyebrow">Product demonstration</div>
+              <h2>See Paisa.ai in action.</h2>
+              <p className="lead">
+                A smart device detects a need. Paisa.ai&apos;s agent reasons about it, initiates the
+                action, and completes the transaction through its payment infrastructure.
+              </p>
+              <p className="demo-product-statement">
+                Your device provides the context. Paisa.ai provides the intelligence and financial
+                execution.
+              </p>
+            </div>
+            <ProductDemo />
+          </div>
+          <div className="demo-explainer">
+            <h3>From device signal to autonomous transaction.</h3>
+            <div>
+              <article>
+                <b>1. Understand</b>
+                <span>Paisa.ai receives device context.</span>
+              </article>
+              <article>
+                <b>2. Reason</b>
+                <span>The agent determines what action is required.</span>
+              </article>
+              <article>
+                <b>3. Authorize</b>
+                <span>Paisa.ai checks whether the transaction is permitted.</span>
+              </article>
+              <article>
+                <b>4. Execute</b>
+                <span>The approved payment is completed and recorded.</span>
+              </article>
+            </div>
+            <DemoCta />
+          </div>
+        </Reveal>
+
         <Reveal className="section household-section">
           <div className="container">
             <div className="section-head">
@@ -250,20 +253,6 @@ function Home() {
               </div>
             </div>
             <HouseholdDemo />
-          </div>
-        </Reveal>
-
-        <Reveal className="section demo-section">
-          <div className="container demo-layout">
-            <div>
-              <div className="eyebrow">Product demonstration</div>
-              <h2>See Paisa.ai in action.</h2>
-              <p className="lead">
-                From a device signal to an autonomous purchase, see the complete agent-to-payment
-                flow.
-              </p>
-            </div>
-            <DemoPlaceholder />
           </div>
         </Reveal>
 
