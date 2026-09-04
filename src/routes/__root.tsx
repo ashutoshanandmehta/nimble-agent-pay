@@ -144,13 +144,14 @@ function AnimatedDotField() {
     const reset = () => {
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
       width = window.innerWidth;
-      height = window.innerHeight;
+      height = Math.max(window.innerHeight, document.documentElement.scrollHeight, document.body.scrollHeight);
       canvas.width = Math.round(width * ratio);
       canvas.height = Math.round(height * ratio);
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const count = width < 700 ? 32 : 64;
+      const screensTall = Math.max(1, height / window.innerHeight);
+      const count = Math.round((width < 700 ? 80 : 160) * screensTall);
       particles = Array.from({ length: count }, (_, color) => ({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -201,8 +202,7 @@ function AnimatedDotField() {
         ? ["rgba(141,169,255,.34)", "rgba(112,222,209,.31)", "rgba(192,167,255,.32)"]
         : ["rgba(62,91,190,.32)", "rgba(48,174,151,.28)", "rgba(137,86,193,.27)"];
       context.clearRect(0, 0, width, height);
-      for (let index = 0; index < particles.length; index += 1) {
-        const dot = particles[index]!;
+      for (const dot of particles) {
         repel(dot);
         dot.x += dot.vx;
         dot.y += dot.vy;
@@ -215,7 +215,21 @@ function AnimatedDotField() {
           dot.vx = (dot.vx / speed) * 1.75;
           dot.vy = (dot.vy / speed) * 1.75;
         }
-        for (let other = index + 1; other < particles.length; other += 1) collide(dot, particles[other]!);
+      }
+      const buckets = new Map<string, Particle[]>();
+      const cellSize = 28;
+      for (const dot of particles) {
+        const cellX = Math.floor(dot.x / cellSize);
+        const cellY = Math.floor(dot.y / cellSize);
+        for (let x = cellX - 1; x <= cellX + 1; x += 1) {
+          for (let y = cellY - 1; y <= cellY + 1; y += 1) {
+            for (const neighbour of buckets.get(`${x}:${y}`) ?? []) collide(dot, neighbour);
+          }
+        }
+        const key = `${cellX}:${cellY}`;
+        const bucket = buckets.get(key) ?? [];
+        bucket.push(dot);
+        buckets.set(key, bucket);
       }
       for (const dot of particles) {
         context.beginPath();
@@ -232,6 +246,7 @@ function AnimatedDotField() {
     reset();
     draw();
     window.addEventListener("resize", reset);
+    window.addEventListener("load", reset);
     const moveCursor = (event: PointerEvent) => {
       cursor.x = event.clientX;
       cursor.y = event.clientY;
@@ -245,6 +260,7 @@ function AnimatedDotField() {
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener("resize", reset);
+      window.removeEventListener("load", reset);
       window.removeEventListener("pointermove", moveCursor);
       window.removeEventListener("blur", clearCursor);
     };
