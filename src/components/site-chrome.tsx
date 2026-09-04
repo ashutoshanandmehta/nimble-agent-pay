@@ -8,23 +8,6 @@ const NAV = [
   { to: "/team", label: "Team" },
 ] as const;
 
-function PaisaMark({ decorative = false }: { decorative?: boolean }) {
-  return (
-    <svg className="logo" viewBox="0 0 40 40" aria-hidden={decorative || undefined} role={decorative ? undefined : "img"}>
-      {!decorative && <title>Paisa.ai</title>}
-      <defs>
-        <linearGradient id="paisa-mark" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#3159c8" />
-          <stop offset="1" stopColor="#1a9a90" />
-        </linearGradient>
-      </defs>
-      <rect x="3" y="3" width="34" height="34" rx="11" fill="url(#paisa-mark)" />
-      <path d="M12 13.5h10a5.5 5.5 0 0 1 0 11h-6.5v3H12v-14Zm3.5 3v5h6.2a2.5 2.5 0 0 0 0-5h-6.2Z" fill="white" />
-      <circle cx="28.5" cy="28.5" r="3" fill="#a9f2db" />
-    </svg>
-  );
-}
-
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
@@ -43,7 +26,7 @@ export function SiteHeader() {
     <header className="topbar">
       <div className="container glass nav">
         <Link className="brand" to="/">
-          <PaisaMark />
+          <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="Paisa.ai" />
           <span>Paisa.ai</span>
         </Link>
         <nav className="navlinks">
@@ -79,7 +62,7 @@ export function SiteFooter({ note, extra }: { note: string; extra?: ReactNode })
       <div className="container footer-inner">
         <div>
           <div className="brand">
-            <PaisaMark decorative /> <span>Paisa.ai</span>
+            <img className="logo" src={`${import.meta.env.BASE_URL}paisa-logo.png`} alt="" /> <span>Paisa.ai</span>
           </div>
           <div className="footer-note" style={{ marginTop: 8 }}>
             {note}
