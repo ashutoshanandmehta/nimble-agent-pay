@@ -29,6 +29,7 @@ html{font-size:12px}
 
 /* smart refrigerator illustration */
 .fridge-illustration{width:min(17.5rem,78vw);height:auto;display:block}
+.logo{flex:none;object-fit:contain;border-radius:.6875rem}
 
 .person .avatar-fallback{
   width:4.875rem;height:4.875rem;border-radius:1.375rem;font-size:1.25rem;

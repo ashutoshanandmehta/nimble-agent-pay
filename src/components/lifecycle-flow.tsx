@@ -82,9 +82,12 @@ export function LifecycleFlow() {
 
   useEffect(() => {
     if (!playing) return;
-    const t = setInterval(() => setStep((s) => (s + 1) % EVENTS.length), 1600);
+    const t = setInterval(() => {
+      if (tab === "life") setStage((s) => (s + 1) % STAGES.length);
+      else setStep((s) => (s + 1) % EVENTS.length);
+    }, 1200);
     return () => clearInterval(t);
-  }, [playing]);
+  }, [playing, tab]);
 
   const e = EVENTS[step]!;
   const go = (i: number) => setStep((i + EVENTS.length) % EVENTS.length);
@@ -115,7 +118,7 @@ export function LifecycleFlow() {
           </button>
         </div>
         <div className="controls">
-          <button className="control" onClick={() => setPlaying((p) => !p)}>
+          <button className="control" onClick={() => setPlaying((p) => !p)} aria-pressed={playing}>
             {playing ? "❚❚ Pause" : "▶ Play"}
           </button>
           <button className="control" onClick={() => go(step - 1)}>←</button>

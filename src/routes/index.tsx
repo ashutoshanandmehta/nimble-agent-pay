@@ -29,6 +29,12 @@ const STEPS = [
   ["Prove", "Mandate → order → payment ✓"],
 ] as const;
 
+const HOME_CASES = [
+  ["⌁", "Diagnostic analysers", "Replenish critical reagents.", "Lab equipment reorders inside pre-authorised budget bounds."],
+  ["▦", "Vending & edge inventory", "Restock from the edge.", "Machines buy from suppliers without becoming unrestricted payment accounts."],
+  ["◉", "Industrial equipment", "Keep the system running.", "Telemetry triggers consumable replenishment within the equipment agent's authority."],
+] as const;
+
 function Home() {
   const [active, setActive] = useState(0);
 
@@ -44,10 +50,8 @@ function Home() {
         <section className="hero">
           <div className="container hero-grid">
             <div className="hero-copy">
-              <div className="hero-kicker">
-                <span className="dot" /> Bounded authority for machine-initiated payments
-              </div>
-              <h1 className="gradient" style={{ marginTop: 26 }}>
+              <div className="eyebrow">Paisa.ai · Autonomous commerce infrastructure</div>
+              <h1 className="gradient" style={{ marginTop: 14 }}>
                 Payment Infrastructure for Autonomous Agents.
               </h1>
               <p className="lead">
@@ -107,6 +111,29 @@ function Home() {
             </div>
           </div>
         </section>
+
+        <Reveal className="section home-use-cases">
+          <div className="container">
+            <div className="section-head">
+              <div className="copy">
+                <div className="eyebrow">What Paisa.ai enables</div>
+                <h2>When machines can safely pay, replenishment becomes part of the workflow.</h2>
+                <p className="lead">Paisa.ai lets connected systems detect a need, make an authorised purchase and leave an auditable record.</p>
+              </div>
+              <Link className="link-arrow" to="/use-cases">Explore use cases →</Link>
+            </div>
+            <div className="grid-3">
+              {HOME_CASES.map(([icon, name, title, body]) => (
+                <article className="glass use-case" key={name}>
+                  <div className="machine">{icon}</div>
+                  <div className="eyebrow">{name}</div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Reveal>
 
         <Reveal className="section">
           <div className="container glass card" style={{ padding: 40 }}>
@@ -168,23 +195,6 @@ function Home() {
           </div>
         </Reveal>
 
-        <Reveal className="dark-section">
-          <div className="container">
-            <div className="eyebrow" style={{ color: "#7e8ba0" }}>
-              The positioning
-            </div>
-            <h2 style={{ maxWidth: 900 }}>Paisa.ai does not make agents spend.</h2>
-            <h2 style={{ maxWidth: 900 }}>
-              It makes autonomous spending <span className="gradient">controllable.</span>
-            </h2>
-            <div className="pill-row">
-              <span className="dark-pill">Bounded authority</span>
-              <span className="dark-pill">Verifiable intent</span>
-              <span className="dark-pill">Cross-rail evidence</span>
-              <span className="dark-pill">Autonomous commerce</span>
-            </div>
-          </div>
-        </Reveal>
       </main>
       <SiteFooter
         note="Payment infrastructure for autonomous agents."
