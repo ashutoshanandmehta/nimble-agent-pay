@@ -117,9 +117,8 @@ function Home() {
             <div className="section-head">
               <div className="copy">
                 <div className="eyebrow">What Paisa.ai enables</div>
-                <p className="home-use-heading">Connected devices become active participants in household commerce.</p>
-                <h2>When machines can safely pay, replenishment becomes part of the workflow.</h2>
-                <p className="lead">Paisa.ai lets connected systems detect a need, make an authorised purchase and leave an auditable record.</p>
+                <h2>Connected devices can make replenishment part of the workflow.</h2>
+                <p className="lead">Paisa.ai lets a device detect a need, an agent create an authorised order, and payment proceed within limits the owner set — with an auditable record at the end.</p>
               </div>
             </div>
             <div className="grid-3">
