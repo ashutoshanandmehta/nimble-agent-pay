@@ -140,7 +140,7 @@ function Home() {
             <div className="rail-animation" aria-label="Animated payment flow from UPI to virtual card to merchant bank">
               <div className="rail-station"><span>1</span><b>UPI account</b><small>Approved funds</small></div>
               <div className="rail-path loading"><i /><em>Loading rail</em><small>UPI → virtual card</small></div>
-              <div className="rail-station card-station"><span>2</span><b>Virtual card</b><small>Limited balance</small></div>
+              <div className="rail-station card-station"><span>2</span><b>Virtual card</b><small>Immediate Transfer</small></div>
               <div className="rail-path spending"><i /><em>Spending rail</em><small>Card → merchant bank</small></div>
               <div className="rail-station merchant-station"><span>3</span><b>Merchant bank</b><small>Payment received</small></div>
             </div>
