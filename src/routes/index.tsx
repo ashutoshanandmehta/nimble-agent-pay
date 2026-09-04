@@ -36,8 +36,15 @@ const HOME_CASES = [
   ["◉", "Industrial equipment", "Keep the system running.", "Telemetry triggers consumable replenishment within the equipment agent's authority."],
 ] as const;
 
+const HERO_SCENES = [
+  { name: "Connected home", detail: "A household device detects a need before anyone has to open a shopping app.", image: "images/connected-kitchen.jpg" },
+  { name: "Industrial equipment", detail: "A machine can replenish what keeps an operation running—within its defined authority.", image: "images/industrial-equipment.jpg" },
+  { name: "Edge devices", detail: "Connected hardware can purchase exactly what it needs, without becoming an unrestricted account.", image: "images/edge-inventory.jpg" },
+] as const;
+
 function Home() {
   const [active, setActive] = useState(0);
+  const [scene, setScene] = useState(0);
 
   useEffect(() => {
     const t = setInterval(() => setActive((i) => (i + 1) % STEPS.length), 1700);
@@ -49,6 +56,11 @@ function Home() {
       <SiteHeader />
       <main>
         <section className="hero">
+          <div
+            className="hero-image"
+            aria-hidden="true"
+            style={{ backgroundImage: `url(${import.meta.env.BASE_URL}${HERO_SCENES[scene].image})` }}
+          />
           <div className="container hero-grid">
             <div className="hero-copy">
               <h1 className="gradient" style={{ marginTop: 14 }}>
@@ -58,6 +70,19 @@ function Home() {
                 Agents can decide and act. Moving money is the unresolved part — without handing over unrestricted
                 financial access or asking a human to approve every transaction.
               </p>
+              <div className="hero-scenarios" aria-label="Explore payment scenarios">
+                {HERO_SCENES.map((item, i) => (
+                  <button
+                    key={item.name}
+                    className={`hero-scene${scene === i ? " active" : ""}`}
+                    onClick={() => setScene(i)}
+                    aria-pressed={scene === i}
+                  >
+                    {item.name}
+                  </button>
+                ))}
+              </div>
+              <p className="hero-scene-detail">{HERO_SCENES[scene].detail}</p>
               <div className="actions">
                 <Link className="btn btn-primary" to="/how-it-works">
                   See the payment lifecycle →
