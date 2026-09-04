@@ -153,7 +153,7 @@ export function LifecycleFlow() {
                 return (
                   <div
                     key={ev.n}
-                    className={`event ${idx === step ? "active" : "dim"}`}
+                    className={`event ${idx === step ? "active" : "dim"}${idx === 7 && idx === step ? " confirmed" : ""}`}
                     style={{ top: idx * 48 + 6, ["--c" as string]: COLOR[ev.actor] }}
                     onClick={() => go(idx)}
                   >
@@ -176,7 +176,7 @@ export function LifecycleFlow() {
           <div className="life-track">
             <div className="life-line" />
             {STAGES.map(([num, name, note], i) => (
-              <button key={name} className={`life-node${stage === i ? " active" : ""}`} onClick={() => setStage(i)}>
+              <button key={name} className={`life-node${stage === i ? " active" : ""}${i === 5 && stage === i ? " paid" : ""}`} onClick={() => setStage(i)}>
                 <b>{num}</b>
                 <span>{name}</span>
                 <small>{note}</small>
