@@ -23,9 +23,34 @@ const EVENTS: FlowEvent[] = [
     explain:
       "The UPI PIN is the human authentication step. The mandate sets the authority, limits and validity the later payment must stay within.",
   },
-  { n: "2", title: "Card issued, bound to mandate", sub: "limits + expiry live in credential", actor: "a", path: "Agent → Virtual card", money: "₹0 at risk" },
-  { n: "3", title: "Agent builds the cart", sub: "local model · no money involved yet", actor: "a", path: "Agent → Agent", money: "₹0 at risk" },
-  { n: "4", title: "Agent signs purchase intent", sub: "₹1,240 · 9 items · merchant named", actor: "a", path: "Agent → Agent", money: "₹0 at risk" },
+  {
+    n: "2",
+    title: "Card issued, bound to mandate",
+    sub: "limits + expiry live in credential",
+    actor: "a",
+    path: "Agent → Virtual card",
+    money: "₹0 at risk",
+  },
+  {
+    n: "3",
+    title: "Paisa.ai agent builds the cart",
+    sub: "reasoning stage · no money involved yet",
+    actor: "a",
+    path: "Agent → Agent",
+    money: "₹0 at risk",
+    explain:
+      "The Paisa.ai agent evaluates the available device context and determines the action to take. This is a decision, not yet permission to spend.",
+  },
+  {
+    n: "4",
+    title: "Paisa.ai agent signs purchase intent",
+    sub: "₹1,240 · 9 items · merchant named",
+    actor: "a",
+    path: "Agent → Agent",
+    money: "₹0 at risk",
+    explain:
+      "The agent turns its decision into a bounded purchase intent with a named merchant and exact amount before payment infrastructure checks authority.",
+  },
   {
     n: "5",
     title: "Draws ₹1,240 against mandate",
@@ -33,12 +58,41 @@ const EVENTS: FlowEvent[] = [
     actor: "u",
     path: "Agent → User / UPI",
     money: "₹0 at risk",
-    explain: "The funding instruction consumes the mandate for the exact basket total; money has not yet reached the merchant.",
+    explain:
+      "The funding instruction consumes the mandate for the exact basket total; money has not yet reached the merchant.",
   },
-  { n: "6", title: "Funds load onto the card", sub: "UPI rail · mandate consumed here", actor: "c", path: "User → Virtual card", money: "₹1,240 at risk" },
-  { n: "7", title: "Card pays the merchant", sub: "card rail · agentic token + intent", actor: "c", path: "Virtual card → Merchant", money: "₹1,240 at risk" },
-  { n: "8", title: "Order confirmed", sub: "merchant acknowledges payment", actor: "m", path: "Merchant → Agent", money: "₹0 at risk" },
-  { n: "9", title: "Anything unspent sweeps back", sub: "return / close exposure window", actor: "r", path: "Virtual card → User", money: "₹0 at risk" },
+  {
+    n: "6",
+    title: "Funds load onto the card",
+    sub: "UPI rail · mandate consumed here",
+    actor: "c",
+    path: "User → Virtual card",
+    money: "₹1,240 at risk",
+  },
+  {
+    n: "7",
+    title: "Card pays the merchant",
+    sub: "card rail · agentic token + intent",
+    actor: "c",
+    path: "Virtual card → Merchant",
+    money: "₹1,240 at risk",
+  },
+  {
+    n: "8",
+    title: "Order confirmed",
+    sub: "merchant acknowledges payment",
+    actor: "m",
+    path: "Merchant → Agent",
+    money: "₹0 at risk",
+  },
+  {
+    n: "9",
+    title: "Anything unspent sweeps back",
+    sub: "return / close exposure window",
+    actor: "r",
+    path: "Virtual card → User",
+    money: "₹0 at risk",
+  },
 ];
 
 const COLOR: Record<Actor, string> = {
@@ -97,16 +151,25 @@ export function LifecycleFlow() {
       <div className="flow-top">
         <div>
           <h2>See exactly where authority and money move.</h2>
-          <p>Authority is established once, the order is checked before funds move, and both rails are recorded.</p>
+          <p>
+            Authority is established once, the order is checked before funds move, and both rails
+            are recorded.
+          </p>
         </div>
       </div>
 
       <div className="toolbar">
         <div className="tabs">
-          <button className={`tab${tab === "sequence" ? " active" : ""}`} onClick={() => setTab("sequence")}>
+          <button
+            className={`tab${tab === "sequence" ? " active" : ""}`}
+            onClick={() => setTab("sequence")}
+          >
             Sequence
           </button>
-          <button className={`tab${tab === "life" ? " active" : ""}`} onClick={() => setTab("life")}>
+          <button
+            className={`tab${tab === "life" ? " active" : ""}`}
+            onClick={() => setTab("life")}
+          >
             Lifecycle
           </button>
         </div>
@@ -114,10 +177,18 @@ export function LifecycleFlow() {
           <button className="control" onClick={() => setPlaying((p) => !p)} aria-pressed={playing}>
             {playing ? "❚❚ Pause" : "▶ Play"}
           </button>
-          <button className="control" onClick={() => go(step - 1)}>←</button>
-          <button className="control" onClick={() => go(step + 1)}>→</button>
-          <button className="control" onClick={() => go(0)}>Reset</button>
-          <button className="control" onClick={() => setTab("life")}>⚠ Failure paths</button>
+          <button className="control" onClick={() => go(step - 1)}>
+            ←
+          </button>
+          <button className="control" onClick={() => go(step + 1)}>
+            →
+          </button>
+          <button className="control" onClick={() => go(0)}>
+            Reset
+          </button>
+          <button className="control" onClick={() => setTab("life")}>
+            ⚠ Failure paths
+          </button>
         </div>
       </div>
 
@@ -135,7 +206,10 @@ export function LifecycleFlow() {
           </div>
           <div className="flow-canvas">
             <div className="guides">
-              <span /><span /><span /><span />
+              <span />
+              <span />
+              <span />
+              <span />
             </div>
             <div className="exposure">
               <div className="exposure-label">Money with agent</div>
@@ -154,7 +228,11 @@ export function LifecycleFlow() {
                     <span className="line" style={{ left: `${g.left}%`, width: `${g.width}%` }} />
                     <span
                       className={`arrow ${g.to >= g.from ? "right" : "left"}`}
-                      style={g.to >= g.from ? { left: `${g.left + g.width}%` } : { left: `${g.left - 1}%` }}
+                      style={
+                        g.to >= g.from
+                          ? { left: `${g.left + g.width}%` }
+                          : { left: `${g.left - 1}%` }
+                      }
                     />
                     <span className="label">{ev.title}</span>
                     <span className="sub">{ev.sub}</span>
@@ -169,7 +247,11 @@ export function LifecycleFlow() {
           <div className="life-track">
             <div className="life-line" />
             {STAGES.map(([num, name, note], i) => (
-              <button key={name} className={`life-node${stage === i ? " active" : ""}${i === 5 && stage === i ? " paid" : ""}`} onClick={() => setStage(i)}>
+              <button
+                key={name}
+                className={`life-node${stage === i ? " active" : ""}${i === 5 && stage === i ? " paid" : ""}`}
+                onClick={() => setStage(i)}
+              >
                 <b>{num}</b>
                 <span>{name}</span>
                 <small>{note}</small>
@@ -193,18 +275,32 @@ export function LifecycleFlow() {
             <div className="info-box">
               <div className="k">STEP {step + 1} / 9</div>
               <h3>{e.title}</h3>
-              <p>{e.explain ?? "This stage is executed by the payment infrastructure within the authority already established."}</p>
+              <p>
+                {e.explain ??
+                  "This stage is executed by the payment infrastructure within the authority already established."}
+              </p>
             </div>
             <div className="info-box">
               <div className="k">MONEY LOCATION</div>
               <div className="money">{e.money}</div>
-              <div className="path">{e.path} · {e.sub}</div>
+              <div className="path">
+                {e.path} · {e.sub}
+              </div>
             </div>
           </div>
           <div className="legend">
-            <span><i className="u-line" />UPI funding leg</span>
-            <span><i className="c-line" />Card payment leg</span>
-            <span><i className="r-line" />Return / sweep</span>
+            <span>
+              <i className="u-line" />
+              UPI funding leg
+            </span>
+            <span>
+              <i className="c-line" />
+              Card payment leg
+            </span>
+            <span>
+              <i className="r-line" />
+              Return / sweep
+            </span>
           </div>
         </>
       )}
