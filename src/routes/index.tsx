@@ -22,14 +22,6 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const STEPS = [
-  ["Detect", "Milk running low"],
-  ["Decide", "Build authorised order"],
-  ["Authorise", "Category + limits ✓"],
-  ["Pay", "₹72 executed"],
-  ["Prove", "Mandate → order → payment ✓"],
-] as const;
-
 const HOME_CASES = [
   ["⌁", "Diagnostic analysers", "Replenish critical reagents.", "Lab equipment reorders inside pre-authorised budget bounds."],
   ["▦", "Vending & edge inventory", "Restock from the edge.", "Machines buy from suppliers without becoming unrestricted payment accounts."],
@@ -38,18 +30,12 @@ const HOME_CASES = [
 
 const HERO_SCENES = [
   { name: "Connected home", detail: "A household device detects a need before anyone has to open a shopping app.", image: "images/connected-kitchen.jpg" },
-  { name: "Industrial equipment", detail: "A machine can replenish what keeps an operation running—within its defined authority.", image: "images/industrial-equipment.jpg" },
+  { name: "Industrial equipment", detail: "A machine can replenish what keeps an operation running within its defined authority.", image: "images/industrial-equipment.jpg" },
   { name: "Edge devices", detail: "Connected hardware can purchase exactly what it needs, without becoming an unrestricted account.", image: "images/edge-inventory.jpg" },
 ] as const;
 
 function Home() {
-  const [active, setActive] = useState(0);
   const [scene, setScene] = useState(0);
-
-  useEffect(() => {
-    const t = setInterval(() => setActive((i) => (i + 1) % STEPS.length), 1700);
-    return () => clearInterval(t);
-  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setScene((i) => (i + 1) % HERO_SCENES.length), 5000);
@@ -84,46 +70,6 @@ function Home() {
                 </Link>
               </div>
             </div>
-
-            <div className="glass demo-card">
-              <div className="demo-header">
-                <div>
-                  <div className="eyebrow">A bounded mandate</div>
-                  <div className="demo-title" style={{ fontSize: 25, marginTop: 8 }}>
-                    Authority, not access.
-                  </div>
-                </div>
-              </div>
-              <div className="authority">
-                <div className="mini">
-                  <span>Budget</span>
-                  <b>₹5,000 / mo</b>
-                </div>
-                <div className="mini">
-                  <span>Per purchase</span>
-                  <b>₹2,000</b>
-                </div>
-                <div className="mini">
-                  <span>Category</span>
-                  <b>Groceries</b>
-                </div>
-                <div className="mini">
-                  <span>Validity</span>
-                  <b>30 days</b>
-                </div>
-              </div>
-              <div className="demo-flow">
-                {STEPS.map(([name, note], i) => (
-                  <div key={name} className={`demo-step${i === active ? " active" : ""}`}>
-                    <span className="step-mark">{i + 1}</span>
-                    <div>
-                      <b>{name}</b>
-                      <div style={{ fontSize: 12, color: "var(--pmuted)" }}>{note}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
@@ -131,9 +77,8 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">What Paisa.ai enables</div>
                 <h2>Connected devices can make replenishment part of the workflow.</h2>
-                <p className="lead">Paisa.ai lets a device detect a need, an agent create an authorised order, and payment proceed within limits the owner set — with an auditable record at the end.</p>
+                <p className="lead">Paisa.ai lets a device detect a need, an agent create an authorised order, and payment proceed within limits the owner set, with an auditable record at the end.</p>
               </div>
             </div>
             <div className="grid-3">
@@ -159,7 +104,7 @@ function Home() {
             <div className="eyebrow">01 · Paisa.ai</div>
             <h2 className="gradient">A control plane for machine-initiated payments.</h2>
             <p className="lead">
-              Not a wallet for agents — infrastructure that makes autonomous spending predictable, constrained and
+              Not a wallet for agents. It is infrastructure that makes autonomous spending predictable, constrained and
               traceable.
             </p>
             <div className="signature">
@@ -188,26 +133,18 @@ function Home() {
         </Reveal>
 
         <Reveal className="section">
-          <div className="container grid-2">
-            <article className="glass card">
-              <div className="eyebrow">02 · Architecture</div>
-              <h2>One purchase. Two rails. One evidence layer.</h2>
-              <p>
-                The funding leg and the merchant payment leg stay separate, and each carries enough context to prove the
-                payment matches the user's authority and the agent's signed order.
-              </p>
-              <Link className="link-arrow" to="/how-it-works">
-                Open the interactive lifecycle →
-              </Link>
-            </article>
-            <article className="glass card">
-              <div className="eyebrow">03 · India rails</div>
-              <h2>UPI for funding. Card rails for execution.</h2>
-              <p>Cheap to fund, compatible with existing merchant acceptance, bounded end to end.</p>
-              <Link className="link-arrow" to="/trust">
-                See the rail architecture →
-              </Link>
-            </article>
+          <div className="container glass rail-explainer">
+            <div className="eyebrow">How money moves</div>
+            <h2>Two rails, one controlled purchase.</h2>
+            <p className="lead">The loading rail moves the approved amount from UPI to the virtual card. The spending rail then pays the merchant from that card. Paisa.ai keeps both steps tied to the same authority and order.</p>
+            <div className="rail-animation" aria-label="Animated payment flow from UPI to virtual card to merchant bank">
+              <div className="rail-station"><span>1</span><b>UPI account</b><small>Approved funds</small></div>
+              <div className="rail-path loading"><i /><em>Loading rail</em><small>UPI → virtual card</small></div>
+              <div className="rail-station card-station"><span>2</span><b>Virtual card</b><small>Limited balance</small></div>
+              <div className="rail-path spending"><i /><em>Spending rail</em><small>Card → merchant bank</small></div>
+              <div className="rail-station merchant-station"><span>3</span><b>Merchant bank</b><small>Payment received</small></div>
+            </div>
+            <Link className="link-arrow" to="/how-it-works">See the complete payment lifecycle →</Link>
           </div>
         </Reveal>
 

@@ -1,6 +1,20 @@
-import { Link } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+
+const STEPS = [
+  ["Detect", "Milk running low"],
+  ["Decide", "Build authorised order"],
+  ["Authorise", "Category + limits ✓"],
+  ["Pay", "₹72 executed"],
+  ["Prove", "Mandate → order → payment ✓"],
+] as const;
 
 export function HouseholdDemo() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => setActive((current) => (current + 1) % STEPS.length), 1700);
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="home-demo">
       <div className="glass fridge">
@@ -43,20 +57,23 @@ export function HouseholdDemo() {
           <div className="fridge-status">SMART REFRIGERATOR · ONLINE</div>
         </div>
       </div>
-      <div className="glass fridge-copy">
-        <div className="eyebrow">Example household workflow</div>
-        <h2>“We're running low on milk.”</h2>
-        <p className="lead">The fridge detects the shortage, the agent selects an authorised purchase, Paisa.ai checks the authority and pays.</p>
-        <div className="glass purchase-card">
-          <div className="purchase-label">AUTHORISED PURCHASE</div>
-          <div className="purchase-rows">
-            <div>Category <strong>Groceries ✓</strong></div>
-            <div>Per purchase <strong>₹72 / ₹2,000 ✓</strong></div>
-            <div>Mandate <strong>Valid ✓</strong></div>
-          </div>
+      <div className="glass mandate-card">
+        <div className="eyebrow">A bounded mandate</div>
+        <h3>Authority, not access.</h3>
+        <p>The fridge can request a purchase, but it can only act inside the boundaries its owner set.</p>
+        <div className="authority">
+          <div className="mini"><span>Budget</span><b>₹5,000 / mo</b></div>
+          <div className="mini"><span>Per purchase</span><b>₹2,000</b></div>
+          <div className="mini"><span>Category</span><b>Groceries</b></div>
+          <div className="mini"><span>Validity</span><b>30 days</b></div>
         </div>
-        <div className="actions">
-          <Link className="btn btn-primary" to="/how-it-works">Trace the payment →</Link>
+        <div className="demo-flow">
+          {STEPS.map(([name, note], i) => (
+            <div key={name} className={`demo-step${i === active ? " active" : ""}`}>
+              <span className="step-mark">{i + 1}</span>
+              <div><b>{name}</b><small>{note}</small></div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
