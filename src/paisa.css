@@ -56,3 +56,6 @@ html{font-size:12px}
 
 /* Ambient background: a restrained field of wandering particles behind every page. */
 .site-shell{position:relative;isolation:isolate;min-height:100vh}.site-shell>header,.site-shell>main,.site-shell>footer{position:relative;z-index:1}.ambient-dots{position:fixed;inset:0;z-index:0;width:100%;height:100%;pointer-events:none}
+
+/* Let the moving background read through every glass surface while preserving legibility. */
+.glass{background:linear-gradient(135deg,rgba(255,255,255,.43),rgba(246,250,255,.19));border-color:rgba(255,255,255,.7);box-shadow:0 1.75rem 4.75rem rgba(35,59,97,.14),inset 0 1px 1px rgba(255,255,255,.9);backdrop-filter:blur(1.35rem) saturate(165%);-webkit-backdrop-filter:blur(1.35rem) saturate(165%)}.dark .glass{background:linear-gradient(135deg,rgba(27,39,62,.52),rgba(16,25,43,.28));border-color:rgba(215,232,255,.23);box-shadow:0 1.75rem 4.75rem rgba(0,0,0,.3),inset 0 1px 1px rgba(255,255,255,.1)}
