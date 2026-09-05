@@ -693,6 +693,18 @@ p {
   align-items: stretch;
   margin-top: 2rem;
 }
+.product-story-copy {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.25rem;
+}
+.product-story-copy > p {
+  max-width: 31rem;
+  margin: 0;
+  color: var(--pmuted);
+  font-size: 1.08rem;
+  line-height: 1.75;
+}
 .household-fridge {
   min-height: 100%;
   display: grid;
@@ -703,7 +715,13 @@ p {
 }
 .product-story .product-demo { margin: 0; }
 .compact-continuation { margin-top: -1.5rem; }
-.technical-visuals article { padding: 1.35rem; border: 1px solid var(--line); border-radius: 1.25rem; }
+.technical-visuals {
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.technical-visuals article { padding: 1.6rem; border: 0; border-radius: 0; }
+.technical-visuals article + article { border-left: 1px solid var(--line); }
 .editorial-flow-section { background: transparent !important; box-shadow: none !important; }
 .technical-notes,
 .rail-editorial {
@@ -758,6 +776,7 @@ p {
   .use-case-story .flow { grid-column: 2; }
   .editorial-pillars .trust-card { grid-template-columns: 2.5rem 1fr; gap: .6rem 1rem; }
   .editorial-pillars .check-list { grid-column: 2; }
+  .technical-visuals article + article { border-left: 0; border-top: 1px solid var(--line); }
 }
 .reveal {
   opacity: 0;
@@ -1436,19 +1455,15 @@ html {
 }
 .siic-ribbon {
   margin: 1.5rem auto 4rem;
-  padding: 1.35rem 1.75rem;
+  padding: 1.5rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.25rem;
-  border: 1px solid rgba(47, 91, 193, 0.24);
-  border-radius: 1.5rem;
-  background: linear-gradient(110deg, rgba(48, 89, 199, 0.14), rgba(22, 157, 144, 0.13));
-  box-shadow: var(--shadow);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-.siic-ribbon .eyebrow {
-  color: var(--blue);
-}
+.siic-intro { color: var(--faint) !important; font: 700 .68rem/1 "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
 .siic-ribbon strong {
   display: block;
   font-size: 1.1rem;

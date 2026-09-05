@@ -164,7 +164,7 @@ function AnimatedDotField() {
       canvas.style.height = `${height}px`;
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
       const screensTall = Math.max(1, height / window.innerHeight);
-      const count = Math.round((width < 700 ? 80 : 160) * screensTall);
+      const count = Math.round((width < 700 ? 68 : 136) * screensTall);
       particles = Array.from({ length: count }, (_, color) => ({
         x: Math.random() * width,
         y: Math.random() * height,

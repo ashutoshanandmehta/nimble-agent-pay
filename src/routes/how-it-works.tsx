@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { LifecycleFlow } from "@/components/lifecycle-flow";
 
 export const Route = createFileRoute("/how-it-works")({
@@ -34,12 +34,7 @@ function HowItWorks() {
               Your device provides context. Paisa.ai turns it into a bounded payment when the
               rules allow it.
             </p>
-            <div className="actions">
-              <DemoCta />
-              <Link className="btn btn-soft" to="/trust">
-                Explore Trust &amp; Architecture
-              </Link>
-            </div>
+            <Link className="link-arrow" to="/trust">Explore Trust &amp; Architecture →</Link>
           </div>
         </section>
 
@@ -61,18 +56,17 @@ function HowItWorks() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">Technical depth</div>
                 <h2>How the agent becomes a payment.</h2>
                 <div className="article-copy"><p>A decision is not permission to spend. Paisa.ai checks the request against the mandate before money moves. The three parts below show how a request becomes a payment.</p></div>
               </div>
             </div>
-            <div className="technical-notes technical-visuals">
-              <article className="glass">
+            <div className="technical-notes technical-visuals glass" aria-label="Payment execution architecture">
+              <article>
                 <div className="card-kicker">BEFORE FUNDS MOVE</div>
                 <h3>Intent signing</h3>
                 <p>Cart, amount and merchant are fixed in a signed record before funding begins.</p>
               </article>
-              <article className="glass">
+              <article>
                 <div className="card-kicker">FUNDING LEG</div>
                 <h3>Exact amount on UPI</h3>
                 <p>
@@ -80,7 +74,7 @@ function HowItWorks() {
                   credential.
                 </p>
               </article>
-              <article className="glass">
+              <article>
                 <div className="card-kicker">EXECUTION LEG</div>
                 <h3>Card payment</h3>
                 <p>The merchant sees a normal card transaction carrying the agentic context.</p>

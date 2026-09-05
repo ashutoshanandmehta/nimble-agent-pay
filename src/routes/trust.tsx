@@ -74,8 +74,7 @@ function Trust() {
         <Reveal className="section trust-boundary-section">
           <div className="container trust-boundary-layout">
             <div>
-              <div className="eyebrow">The core boundary</div>
-              <h2>What the agent wants is not the same as what it can spend.</h2>
+              <h2>A purchase request is not permission to spend.</h2>
               <div className="article-copy"><p>The agent makes a request. Paisa.ai checks the limits, category, and validity before it lets the payment through. That is the boundary: a device can act, but it cannot spend without permission.</p></div>
             </div>
             <div className="glass trust-boundary-flow">
@@ -108,7 +107,6 @@ function Trust() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">Controlled financial agency</div>
                 <h2>Decision → Authorization → Execution.</h2>
                 <div className="article-copy"><p>The device can act on its own, but only within the financial authority granted to it. Decision and authorization are separate steps for a reason.</p></div>
               </div>
@@ -140,7 +138,8 @@ function Trust() {
 
         <section className="section trust-pillars-section">
           <div className="container">
-            <div className="eyebrow">Three pillars of agentic trust</div>
+            <h2>Three things keep an autonomous payment accountable.</h2>
+            <div className="article-copy"><p>The owner sets the boundaries. The request states exactly what the agent wants to buy. The final record shows how that request was handled across the payment rails.</p></div>
             <div className="trust-grid editorial-pillars" style={{ marginTop: 18 }}>
               {PILLARS.map(([num, title, body, checks]) => (
                 <Reveal as="article" key={num} className="trust-card">
@@ -163,7 +162,6 @@ function Trust() {
         <Reveal className="section trust-evidence-section">
           <div className="container trust-evidence editorial-flow-section">
             <div>
-              <div className="eyebrow">Intent and evidence</div>
               <h2>What the agent decided stays connected to what gets paid.</h2>
               <div className="article-copy"><p>An agent decision becomes an explicit purchase intent. That intent stays with the authorization and the payment, so someone can see what the agent asked for and what actually happened.</p></div>
             </div>
@@ -186,7 +184,6 @@ function Trust() {
         <section className="section">
           <div className="container rail-editorial">
             <article>
-              <div className="eyebrow">Rail architecture</div>
               <h2>UPI and card rails solve different parts of the system.</h2>
               <p>
                 The agent makes a request. Paisa.ai authorizes it. Funding and payment then run on
@@ -207,7 +204,6 @@ function Trust() {
               </Link>
             </article>
             <article>
-              <div className="eyebrow">Failure handling</div>
               <h2>Autonomy requires recovery, not just execution.</h2>
               <p>
                 A lost response between funding and merchant credit is a real intermediate state.
@@ -231,12 +227,8 @@ function Trust() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">A practical risk model</div>
                 <h2>What Paisa.ai controls.</h2>
-                <p className="lead">
-                  Financial authority stays with Paisa.ai, rather than being handed over as
-                  unrestricted payment access.
-                </p>
+                <div className="article-copy"><p>Financial authority stays with Paisa.ai rather than being handed over as unrestricted payment access. The checks below are simple ways of keeping a device inside the boundaries its owner set.</p></div>
               </div>
             </div>
             <div
@@ -260,40 +252,11 @@ function Trust() {
 
         <Reveal className="section">
           <div className="container trust-exposure editorial-statement">
-            <div className="eyebrow">Engineering principle</div>
             <h2>Keep the exposure window explicit and short.</h2>
-            <p className="lead">
-              Fund the exact amount. Pay the merchant promptly. Return unspent money if a payment
-              fails. This keeps the period of uncertainty short.
-            </p>
+            <div className="article-copy"><p>Fund the exact amount. Pay the merchant promptly. Return unspent money if a payment fails. This keeps the period of uncertainty short.</p></div>
           </div>
         </Reveal>
 
-        <Reveal className="section trust-closing-section">
-          <div className="container trust-closing editorial-flow-section">
-            <div>
-              <div className="eyebrow">Trust by design</div>
-              <h2>
-                Paisa.ai doesn&apos;t just give devices an agent. It gives them controlled financial
-                agency.
-              </h2>
-              <p className="lead">
-                The agent provides the decision. Paisa.ai provides the authority, payment, and
-                evidence.
-              </p>
-              <p>
-                Trust is part of the product: autonomy can scale without requiring unrestricted
-                financial access.
-              </p>
-            </div>
-            <div className="trust-closing-labels">
-              <b>Bounded authority</b>
-              <b>Explicit intent</b>
-              <b>Controlled execution</b>
-              <b>Verifiable evidence</b>
-            </div>
-          </div>
-        </Reveal>
       </main>
       <SiteFooter />
     </>

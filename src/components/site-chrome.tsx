@@ -102,7 +102,6 @@ export function SiteFooter() {
               {item.label}
             </Link>
           ))}
-          <DemoCta className="footer-demo" />
         </nav>
         <div className="footer-note footer-copyright">© 2026 Paisa.ai</div>
       </div>

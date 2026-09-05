@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/use-cases")({
@@ -33,7 +33,6 @@ function UseCases() {
       <main id="main-content">
         <section className="use-hero">
           <div className="container">
-            <div className="eyebrow">Autonomous commerce</div>
             <h1 className="gradient" style={{ maxWidth: 950 }}>
               When an autonomous system can pay, replenishment becomes part of the workflow.
             </h1>
@@ -46,7 +45,6 @@ function UseCases() {
 
         <section className="section">
           <div className="container">
-            <div className="eyebrow">01 · Industrial & commercial automation</div>
             <div className="use-case-stories" style={{ marginTop: 18 }}>
               {CASES.map(([title, signal, control, flow], index) => (
                 <Reveal as="article" key={title} className="use-case-story">
@@ -65,7 +63,6 @@ function UseCases() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">02 · Consumer ecosystems</div>
                 <h2>Connected devices become active participants in household commerce.</h2>
               </div>
             </div>
@@ -113,7 +110,6 @@ function UseCases() {
                 </div>
               </div>
               <div className="fridge-copy">
-                <div className="eyebrow">Example household workflow</div>
                 <h2>“We're running low on milk.”</h2>
                 <p className="lead">
                   The fridge spots the shortage. Paisa.ai decides whether it should replenish, checks
@@ -143,19 +139,6 @@ function UseCases() {
           </div>
         </section>
 
-        <Reveal className="section">
-          <div className="container editorial-statement">
-            <div className="eyebrow">Smart home assistants</div>
-            <h2>From recommendation to execution.</h2>
-            <p className="lead">
-              A device can move from "you&apos;re low on supplies" to an approved replenishment without
-              holding general-purpose wallet access.
-            </p>
-            <Link className="link-arrow" to="/trust">
-              See how that boundary is enforced →
-            </Link>
-          </div>
-        </Reveal>
       </main>
       <SiteFooter />
     </>

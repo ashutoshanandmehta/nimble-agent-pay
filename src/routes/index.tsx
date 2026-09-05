@@ -131,7 +131,6 @@ function Home() {
         <Reveal className="section architecture-section">
           <div className="container architecture-layout">
             <div>
-              <div className="eyebrow">The complete layer</div>
               <h2>The device integrates once. Paisa.ai handles the agent and the transaction.</h2>
               <div className="article-copy">
                 <p>Intelligence and financial execution arrive together. The agent can understand the device and create a request. Paisa.ai carries out the transaction only when it is within the authority that was set.</p>
@@ -140,7 +139,6 @@ function Home() {
                 Explore the architecture →
               </Link>
               <div className="architecture-copy">
-                <div className="eyebrow">From context to commerce</div>
                 <h3>Think. Act. Pay.</h3>
                 <p>The agent reads the situation, then makes a clear purchase request. Paisa.ai checks the rules and completes the payment.</p>
               </div>
@@ -152,15 +150,13 @@ function Home() {
         <Reveal className="section demo-section">
           <div className="container">
             <div>
-              <div className="eyebrow">Product demonstration</div>
               <h2>See Paisa.ai in action.</h2>
-              <p className="lead">
-                The fridge spots low milk. Paisa.ai decides whether to replenish, checks the
-                mandate, pays ₹72, and keeps the record.
-              </p>
             </div>
             <div className="product-story">
-              <HouseholdDemo />
+              <div className="product-story-copy">
+                <p>The fridge spots low milk. Paisa.ai decides whether to replenish, checks the mandate, pays ₹72, and keeps the record. The device never needs broad access to money. It only gets to make a purchase that is within the rules.</p>
+                <HouseholdDemo />
+              </div>
               <ProductDemo />
             </div>
           </div>
@@ -168,11 +164,7 @@ function Home() {
 
         <Reveal className="section use-cases-section">
           <div className="container">
-            <div className="section-head">
-              <div className="copy">
-                <h2>Where it is useful.</h2>
-              </div>
-            </div>
+            <p className="article-transition">The same pattern applies beyond a household refrigerator. It can help any connected system that sees a repeatable need and has a clear set of spending rules.</p>
             <div className="editorial-rows">
               {USE_CASES.map(([title, problem, result], index) => (
                 <article key={title}>
@@ -189,11 +181,7 @@ function Home() {
         <Reveal className="section trust-preview-section">
           <div className="container trust-preview editorial-flow-section compact-continuation">
             <div>
-              <div className="eyebrow">Bounded autonomy</div>
-              <h2>Autonomous does not mean unrestricted.</h2>
-              <p className="lead">
-                The agent can ask to buy. Paisa.ai decides whether it is allowed to pay.
-              </p>
+              <p className="article-transition"><b>Autonomous does not mean unrestricted.</b> The agent can ask to buy. Paisa.ai decides whether it is allowed to pay.</p>
               <Link className="link-arrow" to="/trust">
                 Explore Trust &amp; Architecture →
               </Link>
@@ -211,8 +199,8 @@ function Home() {
         </Reveal>
 
         <section className="container siic-ribbon compact-continuation" aria-label="Paisa.ai incubation">
-          <div className="eyebrow">Incubated at IIT Kanpur</div>
           <div>
+            <span className="siic-intro">Incubated at IIT Kanpur</span>
             <strong>Startup Incubation and Innovation Centre</strong>
             <span>SIIC, IIT Kanpur</span>
           </div>
