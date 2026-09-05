@@ -21,9 +21,9 @@ export const Route = createFileRoute("/use-cases")({
 });
 
 const CASES = [
-  ["⌁", "Diagnostic analysers", "Replenish critical reagents.", "Lab equipment reorders within pre-authorised budget bounds when stock crosses a threshold.", "LOW REAGENT → ORDER → AUTHORITY → PAY → LAB RUNS"],
-  ["▦", "Vending & edge inventory", "Restock from the edge.", "Machines buy from suppliers without becoming unrestricted payment accounts.", "STOCK LOW → ORDER → VERIFY LIMIT → PAY → RESTOCKED"],
-  ["◉", "Industrial equipment", "Buy what keeps the system running.", "Telemetry triggers consumable replenishment inside the equipment agent's authority.", "TELEMETRY → REPLENISH → AUTHORITY → SUPPLIER PAID"],
+  ["Diagnostic analysers", "A reagent level drops below the safe threshold.", "The agent requests a replenishment order. Paisa.ai checks the lab’s limits and pays the supplier.", "LOW REAGENT → REQUEST → CHECK → PAY → LAB RUNS"],
+  ["Vending & edge inventory", "The machine sees that a product is running out.", "Paisa.ai lets it restock without giving the machine an open payment account.", "STOCK LOW → REQUEST → CHECK → PAY → RESTOCKED"],
+  ["Industrial equipment", "Telemetry points to a consumable or part that needs replacing.", "The agent creates the request. Paisa.ai controls the approved purchase.", "SIGNAL → REQUEST → CHECK → PAY → SUPPLIER PAID"],
 ] as const;
 
 function UseCases() {
@@ -38,8 +38,8 @@ function UseCases() {
               When an autonomous system can pay, replenishment becomes part of the workflow.
             </h1>
             <p className="lead">
-              Different devices, one systems problem: detect a need, create an order, stay inside a bounded mandate and
-              leave auditable evidence.
+              Different devices face the same problem. They need to spot a need, make a request,
+              stay within a mandate, and leave a record.
             </p>
           </div>
         </section>
@@ -47,13 +47,13 @@ function UseCases() {
         <section className="section">
           <div className="container">
             <div className="eyebrow">01 · Industrial & commercial automation</div>
-            <div className="grid-3" style={{ marginTop: 18 }}>
-              {CASES.map(([icon, kicker, title, body, flow]) => (
-                <Reveal as="article" key={kicker} className="glass use-case">
-                  <div className="machine">{icon}</div>
-                  <div className="eyebrow">{kicker}</div>
+            <div className="use-case-stories" style={{ marginTop: 18 }}>
+              {CASES.map(([title, signal, control, flow], index) => (
+                <Reveal as="article" key={title} className="use-case-story">
+                  <span>{String(index + 1).padStart(2, "0")}</span>
                   <h3>{title}</h3>
-                  <p>{body}</p>
+                  <p><b>Detect</b> {signal}</p>
+                  <p><b>Control</b> {control}</p>
                   <div className="flow">{flow}</div>
                 </Reveal>
               ))}
@@ -69,8 +69,8 @@ function UseCases() {
                 <h2>Connected devices become active participants in household commerce.</h2>
               </div>
             </div>
-            <div className="home-demo">
-              <div className="glass fridge">
+            <div className="home-demo household-story">
+              <div className="fridge">
                 <div>
                   <svg className="fridge-illustration" viewBox="0 0 220 300" role="img" aria-label="Smart refrigerator online">
                     <defs>
@@ -112,14 +112,14 @@ function UseCases() {
                   </div>
                 </div>
               </div>
-              <div className="glass fridge-copy">
+              <div className="fridge-copy">
                 <div className="eyebrow">Example household workflow</div>
                 <h2>“We're running low on milk.”</h2>
                 <p className="lead">
-                  The fridge detects the shortage, the agent selects an authorised purchase, Paisa.ai checks the
-                  authority and pays.
+                  The fridge spots the shortage. Paisa.ai decides whether it should replenish, checks
+                  the authority, and pays.
                 </p>
-                <div className="glass" style={{ padding: 18, marginTop: 22 }}>
+                <div className="purchase-summary" style={{ padding: 18, marginTop: 22 }}>
                   <div style={{ font: "800 11px/1 'DM Mono',monospace", color: "var(--faint)" }}>AUTHORISED PURCHASE</div>
                   <div style={{ display: "grid", gap: 8, marginTop: 13 }}>
                     <div>
@@ -144,12 +144,12 @@ function UseCases() {
         </section>
 
         <Reveal className="section">
-          <div className="container glass card">
+          <div className="container editorial-statement">
             <div className="eyebrow">Smart home assistants</div>
             <h2>From recommendation to execution.</h2>
             <p className="lead">
-              Household agents can go from "you're low on supplies" to an authorised replenishment — without
-              general-purpose wallet access.
+              A device can move from "you&apos;re low on supplies" to an approved replenishment without
+              holding general-purpose wallet access.
             </p>
             <Link className="link-arrow" to="/trust">
               See how that boundary is enforced →

@@ -69,8 +69,8 @@ function Trust() {
           <div className="container">
             <h1 className="gradient">Autonomous, without unrestricted access.</h1>
             <p className="lead">
-              Paisa.ai gives smart devices the ability to reason and transact while keeping
-              financial authority bounded, explicit, and verifiable.
+              An agent can decide what it wants to buy. That does not give it unrestricted access
+              to money.
             </p>
             <div className="actions">
               <DemoCta />
@@ -85,10 +85,10 @@ function Trust() {
           <div className="container trust-boundary-layout">
             <div>
               <div className="eyebrow">The core boundary</div>
-              <h2>Agent decision ≠ financial authority.</h2>
+              <h2>What the agent wants is not the same as what it can spend.</h2>
               <p className="lead">
-                The Paisa.ai Agent can determine what should happen. Paisa.ai determines whether
-                that action is financially authorized.
+                The agent makes a request. Paisa.ai checks the limits, category, and validity
+                before it lets the payment through.
               </p>
             </div>
             <div className="glass trust-boundary-flow">
@@ -129,23 +129,22 @@ function Trust() {
                 </p>
               </div>
             </div>
-            <div className="trust-control-flow">
-              <article className="glass">
+            <div className="trust-control-flow editorial-steps">
+              <article>
                 <span>01</span>
                 <h3>Decision</h3>
                 <b>Paisa.ai Agent</b>
                 <p>
-                  Reasons about the device&apos;s context and determines what action should be
-                  taken.
+                  Reads the device context and creates a clear purchase request.
                 </p>
               </article>
-              <article className="glass">
+              <article>
                 <span>02</span>
                 <h3>Authorization</h3>
                 <b>Paisa.ai Control Layer</b>
                 <p>Checks whether the requested action falls within the financial mandate.</p>
               </article>
-              <article className="glass">
+              <article>
                 <span>03</span>
                 <h3>Execution</h3>
                 <b>Paisa.ai Payment Infrastructure</b>
@@ -158,9 +157,9 @@ function Trust() {
         <section className="section trust-pillars-section">
           <div className="container">
             <div className="eyebrow">Three pillars of agentic trust</div>
-            <div className="trust-grid" style={{ marginTop: 18 }}>
+            <div className="trust-grid editorial-pillars" style={{ marginTop: 18 }}>
               {PILLARS.map(([num, title, body, checks]) => (
-                <Reveal as="article" key={num} className="glass trust-card">
+                <Reveal as="article" key={num} className="trust-card">
                   <div className="trust-num">{num}</div>
                   <h3>{title}</h3>
                   <p>{body}</p>
@@ -178,7 +177,7 @@ function Trust() {
         </section>
 
         <Reveal className="section trust-evidence-section">
-          <div className="container glass trust-evidence">
+          <div className="container trust-evidence editorial-flow-section">
             <div>
               <div className="eyebrow">Intent and evidence</div>
               <h2>What the agent decided stays connected to what gets paid.</h2>
@@ -205,13 +204,13 @@ function Trust() {
         </Reveal>
 
         <section className="section">
-          <div className="container grid-2">
-            <article className="glass card">
+          <div className="container rail-editorial">
+            <article>
               <div className="eyebrow">Rail architecture</div>
               <h2>UPI and card rails solve different parts of the system.</h2>
               <p>
-                AI agent decision → Paisa financial authorization → funding and payment rails →
-                merchant → evidence.
+                The agent makes a request. Paisa.ai authorizes it. Funding and payment then run on
+                separate rails.
               </p>
               <p>
                 <strong>UPI</strong>
@@ -227,12 +226,12 @@ function Trust() {
                 See the two-rail lifecycle →
               </Link>
             </article>
-            <article className="glass card">
+            <article>
               <div className="eyebrow">Failure handling</div>
               <h2>Autonomy requires recovery, not just execution.</h2>
               <p>
-                A lost response between funding debit and merchant credit is a real intermediate
-                state. Reconciliation checks what posted before settling, reversing, or closing.
+                A lost response between funding and merchant credit is a real intermediate state.
+                Reconciliation checks what posted before it settles, reverses, or closes.
               </p>
               <div className="failure-mini-flow">
                 <b>Payment attempt</b>
@@ -280,18 +279,18 @@ function Trust() {
         </Reveal>
 
         <Reveal className="section">
-          <div className="container glass card trust-exposure">
+          <div className="container trust-exposure editorial-statement">
             <div className="eyebrow">Engineering principle</div>
             <h2>Keep the exposure window explicit and short.</h2>
             <p className="lead">
-              Exact-amount funding, immediate merchant payment and a deterministic sweep on failure
-              shrink the interval in which money sits with neither the user nor the merchant.
+              Fund the exact amount. Pay the merchant promptly. Return unspent money if a payment
+              fails. This keeps the period of uncertainty short.
             </p>
           </div>
         </Reveal>
 
         <Reveal className="section trust-closing-section">
-          <div className="container glass trust-closing">
+          <div className="container trust-closing editorial-flow-section">
             <div>
               <div className="eyebrow">Trust by design</div>
               <h2>
@@ -299,8 +298,8 @@ function Trust() {
                 agency.
               </h2>
               <p className="lead">
-                The agent provides intelligence. Paisa.ai provides the authority, payment execution,
-                and evidence required for autonomous commerce.
+                The agent provides the decision. Paisa.ai provides the authority, payment, and
+                evidence.
               </p>
               <p>
                 Trust is part of the product: autonomy can scale without requiring unrestricted

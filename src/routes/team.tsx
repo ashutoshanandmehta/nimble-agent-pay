@@ -63,11 +63,11 @@ function Team() {
           <div className="container">
             <div>
               <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)" }}>
-                Building the autonomous commerce layer for smart devices.
+                We want devices to be useful in the real world, not just smart on a screen.
               </h1>
               <p className="lead">
-                Paisa.ai brings an autonomous agent and payment infrastructure together, so connected devices can
-                act within the financial authority a human actually granted.
+                We are building Paisa.ai so connected devices can understand a need, take action,
+                and pay within limits set by the person in charge.
               </p>
             </div>
           </div>
