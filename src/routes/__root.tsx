@@ -93,12 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Paisa.ai" },
       {
         property: "og:image",
-        content: "https://ashutoshanandmehta.github.io/nimble-agent-pay/images/connected-kitchen.jpg",
+        content: "https://ashutoshanandmehta.github.io/paisa.ai/images/connected-kitchen.jpg",
       },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:image",
-        content: "https://ashutoshanandmehta.github.io/nimble-agent-pay/images/connected-kitchen.jpg",
+        content: "https://ashutoshanandmehta.github.io/paisa.ai/images/connected-kitchen.jpg",
       },
     ],
     links: [

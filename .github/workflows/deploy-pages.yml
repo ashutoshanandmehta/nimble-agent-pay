@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      VITE_BASE_PATH: /nimble-agent-pay/
+      VITE_BASE_PATH: /paisa.ai/
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
