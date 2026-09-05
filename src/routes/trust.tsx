@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/trust")({
   head: () => ({
@@ -67,17 +67,7 @@ function Trust() {
       <main id="main-content">
         <section className="hero trust-hero">
           <div className="container">
-            <h1 className="gradient">Autonomous, without unrestricted access.</h1>
-            <p className="lead">
-              An agent can decide what it wants to buy. That does not give it unrestricted access
-              to money.
-            </p>
-            <div className="actions">
-              <DemoCta />
-              <Link className="btn btn-soft" to="/how-it-works">
-                How It Works →
-              </Link>
-            </div>
+            <h1 className="gradient">An agent can decide what it wants to buy.</h1>
           </div>
         </section>
 
@@ -312,7 +302,6 @@ function Trust() {
               <b>Controlled execution</b>
               <b>Verifiable evidence</b>
             </div>
-            <DemoCta />
           </div>
         </Reveal>
       </main>

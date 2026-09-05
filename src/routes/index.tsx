@@ -114,7 +114,6 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">One Paisa.ai integration</div>
                 <h2>One integration. Everything your device needs to transact.</h2>
                 <p className="lead">
                   Paisa.ai combines the autonomous agent and financial infrastructure required for
@@ -131,6 +130,10 @@ function Home() {
               <b>One integrated Paisa.ai service.</b> Your device does not have to assemble the
               agent and the transaction layer separately.
             </p>
+            <div className="before-after integration-before-after">
+              <p><span>Without Paisa.ai</span> A device team has to assemble an agent, payment setup, authorization, transaction handling, and an audit trail.</p>
+              <p><span>With Paisa.ai</span> One integration gives the device an agent, a payment path, and financial controls.</p>
+            </div>
           </div>
         </Reveal>
 
@@ -146,94 +149,29 @@ function Home() {
               <Link className="link-arrow" to="/trust">
                 Explore the architecture →
               </Link>
+              <div className="architecture-copy">
+                <div className="eyebrow">From context to commerce</div>
+                <h3>Think. Act. Pay.</h3>
+                <p>The agent reads the situation and makes a clear purchase request. Paisa.ai checks the rules and completes the payment.</p>
+              </div>
             </div>
             <PaisaArchitectureDiagram />
           </div>
         </Reveal>
 
-        <Reveal className="section think-section">
-          <div className="container">
-            <div className="section-head">
-              <div className="copy">
-                <div className="eyebrow">From context to commerce</div>
-                <h2>Think. Act. Pay.</h2>
-                <p className="lead">
-                  The AI agent provides intelligence. Paisa.ai provides financial agency and
-                  execution.
-                </p>
-              </div>
-            </div>
-            <p className="think-line"><b>Think</b> The agent reads the situation. <b>Act</b> It makes a clear purchase request. <b>Pay</b> Paisa.ai checks the rules and completes the payment.</p>
-          </div>
-        </Reveal>
-
         <Reveal className="section demo-section">
-          <div className="container demo-layout">
+          <div className="container">
             <div>
               <div className="eyebrow">Product demonstration</div>
               <h2>See Paisa.ai in action.</h2>
               <p className="lead">
-                A smart device detects a need. Paisa.ai&apos;s agent reasons about it, initiates the
-                action, and completes the transaction through its payment infrastructure.
-              </p>
-              <p className="demo-product-statement">
-                Your device provides the context. Paisa.ai provides the intelligence and financial
-                execution.
+                The fridge spots low milk. Paisa.ai decides whether to replenish, checks the
+                mandate, pays ₹72, and keeps the record.
               </p>
             </div>
-            <ProductDemo />
-          </div>
-          <div className="demo-explainer">
-            <h3>From device signal to autonomous transaction.</h3>
-            <div>
-              <article>
-                <b>1. Understand</b>
-                <span>Paisa.ai receives device context.</span>
-              </article>
-              <article>
-                <b>2. Reason</b>
-                <span>The agent determines what action is required.</span>
-              </article>
-              <article>
-                <b>3. Authorize</b>
-                <span>Paisa.ai checks whether the transaction is permitted.</span>
-              </article>
-              <article>
-                <b>4. Execute</b>
-                <span>The approved payment is completed and recorded.</span>
-              </article>
-            </div>
-            <DemoCta />
-          </div>
-        </Reveal>
-
-        <Reveal className="section household-section">
-          <div className="container">
-            <div className="section-head">
-              <div className="copy">
-                <div className="eyebrow">A concrete device workflow</div>
-                <h2>Your device sees a need. Paisa.ai takes care of the rest.</h2>
-                <p className="lead">
-                  The fridge spots low milk. Paisa.ai decides whether to replenish, checks the
-                  mandate, pays ₹72, and keeps the record.
-                </p>
-              </div>
-            </div>
-            <HouseholdDemo />
-          </div>
-        </Reveal>
-
-        <Reveal className="section mental-model-section">
-          <div className="container">
-            <div className="section-head">
-              <div className="copy">
-                <div className="eyebrow">What your team gets</div>
-                <h2>Your device. One integration. An autonomous commerce layer.</h2>
-              </div>
-            </div>
-            <div className="before-after">
-              <p><span>Without Paisa.ai</span> A device team has to assemble an agent, payment setup, authorization, transaction handling, and audit trail.</p>
-              <p><span>With Paisa.ai</span> One integration gives the device an agent, a payment path, and clear financial controls.</p>
+            <div className="product-story">
+              <HouseholdDemo />
+              <ProductDemo />
             </div>
           </div>
         </Reveal>
@@ -242,8 +180,7 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <div className="eyebrow">Built for connected systems</div>
-                <h2>Devices that can detect, decide, and transact.</h2>
+                <h2>Where it is useful.</h2>
               </div>
             </div>
             <div className="editorial-rows">
@@ -260,7 +197,7 @@ function Home() {
         </Reveal>
 
         <Reveal className="section trust-preview-section">
-          <div className="container trust-preview editorial-flow-section">
+          <div className="container trust-preview editorial-flow-section compact-continuation">
             <div>
               <div className="eyebrow">Bounded autonomy</div>
               <h2>Autonomous does not mean unrestricted.</h2>
@@ -283,7 +220,7 @@ function Home() {
           </div>
         </Reveal>
 
-        <section className="container siic-ribbon" aria-label="Paisa.ai incubation">
+        <section className="container siic-ribbon compact-continuation" aria-label="Paisa.ai incubation">
           <div className="eyebrow">Incubated at IIT Kanpur</div>
           <div>
             <strong>Startup Incubation and Innovation Centre</strong>

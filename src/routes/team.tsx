@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/team")({
   head: () => ({
@@ -63,12 +63,8 @@ function Team() {
           <div className="container">
             <div>
               <h1 className="gradient" style={{ fontSize: "clamp(3.2rem,5.25vw,6rem)" }}>
-                We want devices to be useful in the real world, not just smart on a screen.
+                We are building Paisa.ai so smart devices can become even smarter.
               </h1>
-              <p className="lead">
-                We are building Paisa.ai so connected devices can understand a need, take action,
-                and pay within limits set by the person in charge.
-              </p>
             </div>
           </div>
         </section>
@@ -120,20 +116,6 @@ function Team() {
             </div>
           </div>
         </section>
-
-        <Reveal className="section">
-          <div className="container glass closing-cta">
-            <div>
-              <div className="eyebrow">Work with Paisa.ai</div>
-              <h2>Give your devices the ability to transact.</h2>
-              <p className="lead">
-                One integration gives your device an autonomous agent and the payment infrastructure to act on its
-                decisions.
-              </p>
-            </div>
-            <DemoCta />
-          </div>
-        </Reveal>
 
       </main>
       <SiteFooter />

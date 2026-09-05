@@ -1,24 +1,7 @@
-import { useEffect, useState } from "react";
-
-const STEPS = [
-  ["Detect", "Milk running low"],
-  ["Decide", "Build authorised order"],
-  ["Authorise", "Category + limits ✓"],
-  ["Pay", "₹72 executed"],
-  ["Prove", "Mandate → order → payment ✓"],
-] as const;
-
 export function HouseholdDemo() {
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => setActive((current) => (current + 1) % STEPS.length), 1700);
-    return () => clearInterval(timer);
-  }, []);
   return (
-    <div className="home-demo">
-      <div className="glass fridge">
-        <div>
+    <div className="fridge household-fridge">
+      <div>
           <svg className="fridge-illustration" viewBox="0 0 220 300" role="img" aria-label="Smart refrigerator online">
             <defs>
               <linearGradient id="home-fridge-body" x1="20" y1="0" x2="200" y2="300" gradientUnits="userSpaceOnUse">
@@ -55,26 +38,6 @@ export function HouseholdDemo() {
             </g>
           </svg>
           <div className="fridge-status">SMART REFRIGERATOR · ONLINE</div>
-        </div>
-      </div>
-      <div className="glass mandate-card">
-        <div className="eyebrow">A bounded mandate</div>
-        <h3>Authority, not access.</h3>
-        <p>The fridge can request a purchase, but it can only act inside the boundaries its owner set.</p>
-        <div className="authority">
-          <div className="mini"><span>Budget</span><b>₹5,000 / mo</b></div>
-          <div className="mini"><span>Per purchase</span><b>₹2,000</b></div>
-          <div className="mini"><span>Category</span><b>Groceries</b></div>
-          <div className="mini"><span>Validity</span><b>30 days</b></div>
-        </div>
-        <div className="demo-flow">
-          {STEPS.map(([name, note], i) => (
-            <div key={name} className={`demo-step${i === active ? " active" : ""}`}>
-              <span className="step-mark">{i + 1}</span>
-              <div><b>{name}</b><small>{note}</small></div>
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );

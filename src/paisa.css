@@ -666,6 +666,32 @@ p {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
+.architecture-copy {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.architecture-copy h3 { margin: .6rem 0; font-size: clamp(1.5rem, 2.4vw, 2.15rem); }
+.architecture-copy p { max-width: 40rem; color: var(--pmuted); line-height: 1.65; }
+.integration-before-after { margin-top: 2.25rem; }
+.product-story {
+  display: grid;
+  grid-template-columns: minmax(16rem, .65fr) minmax(0, 1.35fr);
+  gap: 2rem;
+  align-items: stretch;
+  margin-top: 2rem;
+}
+.household-fridge {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 2rem;
+  background: rgba(255,255,255,.18);
+}
+.product-story .product-demo { margin: 0; }
+.compact-continuation { margin-top: -1.5rem; }
+.technical-visuals article { padding: 1.35rem; border: 1px solid var(--line); border-radius: 1.25rem; }
 .editorial-flow-section { background: transparent !important; box-shadow: none !important; }
 .technical-notes,
 .rail-editorial {
@@ -697,7 +723,8 @@ p {
   .editorial-labels,
   .before-after,
   .technical-notes,
-  .rail-editorial { grid-template-columns: 1fr; gap: 0; }
+  .rail-editorial,
+  .product-story { grid-template-columns: 1fr; gap: 1.25rem; }
   .editorial-labels p + p { border-left: 0; border-top: 1px solid var(--line); padding-left: 0; }
   .editorial-rows article,
   .use-case-story { grid-template-columns: 2.5rem 1fr; gap: .75rem 1rem; }

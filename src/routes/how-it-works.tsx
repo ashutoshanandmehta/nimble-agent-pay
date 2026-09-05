@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { DemoCta, Reveal, SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { LifecycleFlow } from "@/components/lifecycle-flow";
-import { PaisaArchitectureDiagram } from "@/components/paisa-architecture";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -44,23 +43,8 @@ function HowItWorks() {
           </div>
         </section>
 
-        <Reveal className="section how-architecture-section">
-          <div className="container how-architecture-layout">
-            <div>
-              <div className="eyebrow">One integration</div>
-              <h2>One integration. A device that can act in the real world.</h2>
-              <p className="lead">
-                Paisa.ai gives the device an agent to understand the signal and a payment system
-                to carry out the approved action.
-              </p>
-            </div>
-            <PaisaArchitectureDiagram className="how-architecture-diagram" />
-          </div>
-        </Reveal>
-
         <section className="section lifecycle-intro">
           <div className="container">
-            <div className="eyebrow">The detailed payment lifecycle</div>
             <h2>
               When the agent decides to buy, the payment lifecycle begins.
             </h2>
@@ -88,13 +72,13 @@ function HowItWorks() {
                 </p>
               </div>
             </div>
-            <div className="technical-notes">
-              <article>
+            <div className="technical-notes technical-visuals">
+              <article className="glass">
                 <div className="card-kicker">BEFORE FUNDS MOVE</div>
                 <h3>Intent signing</h3>
                 <p>Cart, amount and merchant are fixed in a signed record before funding begins.</p>
               </article>
-              <article>
+              <article className="glass">
                 <div className="card-kicker">FUNDING LEG</div>
                 <h3>Exact amount on UPI</h3>
                 <p>
@@ -102,7 +86,7 @@ function HowItWorks() {
                   credential.
                 </p>
               </article>
-              <article>
+              <article className="glass">
                 <div className="card-kicker">EXECUTION LEG</div>
                 <h3>Card payment</h3>
                 <p>The merchant sees a normal card transaction carrying the agentic context.</p>
@@ -111,19 +95,6 @@ function HowItWorks() {
           </div>
         </Reveal>
 
-        <Reveal className="section how-closing-section">
-          <div className="container glass closing-cta">
-            <div>
-              <div className="eyebrow">See the complete service</div>
-              <h2>Give your devices the ability to transact.</h2>
-              <p className="lead">
-                One integration gives a smart device the agent and payment infrastructure to make
-                authorized decisions in the real world.
-              </p>
-            </div>
-            <DemoCta />
-          </div>
-        </Reveal>
       </main>
       <SiteFooter />
     </>
