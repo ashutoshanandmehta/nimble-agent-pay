@@ -69,7 +69,7 @@ function Team() {
           </div>
         </section>
 
-        <section className="section">
+        <section className="section team-people-section page-end-section">
           <div className="container">
             <h2>Founders & advisors.</h2>
             <div className="people" style={{ marginTop: 24 }}>

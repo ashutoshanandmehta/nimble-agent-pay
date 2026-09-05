@@ -52,7 +52,7 @@ function HowItWorks() {
           </div>
         </section>
 
-        <Reveal className="section how-technical-section">
+        <Reveal className="section how-technical-section page-end-section">
           <div className="container">
             <div className="section-head">
               <div className="copy">

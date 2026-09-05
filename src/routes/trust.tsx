@@ -250,7 +250,7 @@ function Trust() {
           </div>
         </Reveal>
 
-        <Reveal className="section">
+        <Reveal className="section trust-exposure-section page-end-section">
           <div className="container trust-exposure editorial-statement">
             <h2>Keep the exposure window explicit and short.</h2>
             <div className="article-copy"><p>Fund the exact amount. Pay the merchant promptly. Return unspent money if a payment fails. This keeps the period of uncertainty short.</p></div>

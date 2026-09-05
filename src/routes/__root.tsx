@@ -261,8 +261,8 @@ function AnimatedDotField() {
     window.addEventListener("resize", reset);
     window.addEventListener("load", reset);
     const moveCursor = (event: PointerEvent) => {
-      cursor.x = event.clientX;
-      cursor.y = event.clientY;
+      cursor.x = event.clientX + window.scrollX;
+      cursor.y = event.clientY + window.scrollY;
     };
     const clearCursor = () => {
       cursor.x = -1000;

@@ -95,7 +95,7 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <h2>One integration. Everything your device needs to transact.</h2>
+                <h2>You just need one integration for your devices.</h2>
                 <p className="lead">
                   Paisa.ai combines the autonomous agent and financial infrastructure required for
                   smart devices to reason, act, and complete real-world transactions.
@@ -179,16 +179,6 @@ function Home() {
           </div>
         </Reveal>
 
-        <section className="container siic-ribbon compact-continuation" aria-label="Paisa.ai incubation">
-          <div>
-            <span className="siic-intro">Incubated at IIT Kanpur</span>
-            <strong>Startup Incubation and Innovation Centre</strong>
-            <span>SIIC, IIT Kanpur</span>
-          </div>
-          <a href="https://www.iitk.ac.in/innovation-incubation" target="_blank" rel="noopener">
-            Learn about SIIC →
-          </a>
-        </section>
         <Reveal className="section closing-cta-section">
           <div className="container glass closing-cta">
             <div>
@@ -202,6 +192,14 @@ function Home() {
             <DemoCta />
           </div>
         </Reveal>
+        <section className="container siic-ribbon" aria-label="Paisa.ai incubation">
+          <p>
+            Paisa.ai is incubated at IIT Kanpur&apos;s <strong>Startup Incubation and Innovation Centre</strong>, SIIC, IIT Kanpur. {" "}
+            <a href="https://www.iitk.ac.in/innovation-incubation" target="_blank" rel="noopener noreferrer">
+              Learn about SIIC →
+            </a>
+          </p>
+        </section>
       </main>
       <SiteFooter />
     </>
