@@ -608,6 +608,18 @@ p {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
+.article-copy {
+  max-width: 43rem;
+  margin-top: 1.5rem;
+}
+.article-copy p {
+  margin: 0 0 1rem;
+  color: var(--pmuted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+.article-copy p:last-child { margin-bottom: 0; }
+.section-head .article-copy { margin-top: .9rem; }
 .editorial-labels p {
   margin: 0;
   padding: 1.35rem 0;
@@ -715,6 +727,19 @@ p {
   border-width: 1px 0 0 !important;
   border-radius: 0 !important;
 }
+.editorial-pillars {
+  display: block;
+  max-width: 52rem;
+}
+.editorial-pillars .trust-card {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  column-gap: 1.5rem;
+  padding: 2rem 0;
+}
+.editorial-pillars .trust-num { grid-row: span 3; font-size: 1.3rem; }
+.editorial-pillars .check-list { grid-column: 2; display: flex; flex-wrap: wrap; gap: .45rem .9rem; margin-top: .8rem; }
+.editorial-pillars .check { background: transparent; padding: 0; color: var(--faint); }
 .editorial-pillars .trust-card:last-child { border-bottom: 1px solid var(--line) !important; }
 .household-story .fridge,
 .household-story .fridge-copy { background: transparent !important; box-shadow: none !important; }
@@ -731,6 +756,8 @@ p {
   .editorial-rows article > p,
   .use-case-story > p,
   .use-case-story .flow { grid-column: 2; }
+  .editorial-pillars .trust-card { grid-template-columns: 2.5rem 1fr; gap: .6rem 1rem; }
+  .editorial-pillars .check-list { grid-column: 2; }
 }
 .reveal {
   opacity: 0;

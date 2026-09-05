@@ -48,10 +48,7 @@ function HowItWorks() {
             <h2>
               When the agent decides to buy, the payment lifecycle begins.
             </h2>
-            <p className="lead">
-              Detect → Decide → Authorise → Pay → Prove turns a device signal into a payment with
-              a record behind it.
-            </p>
+            <div className="article-copy"><p>Detect → Decide → Authorise → Pay → Prove turns a device signal into a payment with a record behind it. The lifecycle below shows the precise steps.</p></div>
           </div>
         </section>
         <section className="section how-lifecycle-section">
@@ -66,10 +63,7 @@ function HowItWorks() {
               <div className="copy">
                 <div className="eyebrow">Technical depth</div>
                 <h2>How the agent becomes a payment.</h2>
-                <p className="lead">
-                  A decision is not permission to spend. Paisa.ai checks the request against the
-                  mandate before money moves.
-                </p>
+                <div className="article-copy"><p>A decision is not permission to spend. Paisa.ai checks the request against the mandate before money moves. The three parts below show how a request becomes a payment.</p></div>
               </div>
             </div>
             <div className="technical-notes technical-visuals">

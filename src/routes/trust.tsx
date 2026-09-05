@@ -76,10 +76,7 @@ function Trust() {
             <div>
               <div className="eyebrow">The core boundary</div>
               <h2>What the agent wants is not the same as what it can spend.</h2>
-              <p className="lead">
-                The agent makes a request. Paisa.ai checks the limits, category, and validity
-                before it lets the payment through.
-              </p>
+              <div className="article-copy"><p>The agent makes a request. Paisa.ai checks the limits, category, and validity before it lets the payment through. That is the boundary: a device can act, but it cannot spend without permission.</p></div>
             </div>
             <div className="glass trust-boundary-flow">
               <div>
@@ -113,10 +110,7 @@ function Trust() {
               <div className="copy">
                 <div className="eyebrow">Controlled financial agency</div>
                 <h2>Decision → Authorization → Execution.</h2>
-                <p className="lead">
-                  The device can act autonomously, but only within the financial authority granted
-                  to it.
-                </p>
+                <div className="article-copy"><p>The device can act on its own, but only within the financial authority granted to it. Decision and authorization are separate steps for a reason.</p></div>
               </div>
             </div>
             <div className="trust-control-flow editorial-steps">
@@ -171,11 +165,7 @@ function Trust() {
             <div>
               <div className="eyebrow">Intent and evidence</div>
               <h2>What the agent decided stays connected to what gets paid.</h2>
-              <p className="lead">
-                Agent decision → explicit purchase intent → authorization → payment. The intent
-                records what the agent actually requested so it can be checked before execution and
-                explained afterward.
-              </p>
+              <div className="article-copy"><p>An agent decision becomes an explicit purchase intent. That intent stays with the authorization and the payment, so someone can see what the agent asked for and what actually happened.</p></div>
             </div>
             <div className="trust-evidence-flow">
               <b>Agent decision</b>

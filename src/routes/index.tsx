@@ -121,18 +121,9 @@ function Home() {
                 </p>
               </div>
             </div>
-            <div className="editorial-labels" aria-label="What Paisa.ai provides">
-              <p><b>Agent</b> Understands the device and decides what to do.</p>
-              <p><b>Payment</b> Checks the request and moves money when it is allowed.</p>
-              <p><b>Control</b> Keeps every action inside the owner&apos;s rules.</p>
-            </div>
-            <p className="integration-unifier">
-              <b>One integrated Paisa.ai service.</b> Your device does not have to assemble the
-              agent and the transaction layer separately.
-            </p>
-            <div className="before-after integration-before-after">
-              <p><span>Without Paisa.ai</span> A device team has to assemble an agent, payment setup, authorization, transaction handling, and an audit trail.</p>
-              <p><span>With Paisa.ai</span> One integration gives the device an agent, a payment path, and financial controls.</p>
+            <div className="article-copy">
+              <p>The agent understands what the device is seeing and decides what to do next. The payment layer checks the request and moves money when it is allowed. The control layer keeps every action inside the owner&apos;s rules.</p>
+              <p>Without Paisa.ai, a device team has to join up an agent, payment setup, authorization, transaction handling, and an audit trail. With Paisa.ai, one integration provides those parts together.</p>
             </div>
           </div>
         </Reveal>
@@ -142,17 +133,16 @@ function Home() {
             <div>
               <div className="eyebrow">The complete layer</div>
               <h2>The device integrates once. Paisa.ai handles the agent and the transaction.</h2>
-              <p className="lead">
-                Intelligence and financial execution arrive together, with clear authority around
-                every autonomous action.
-              </p>
+              <div className="article-copy">
+                <p>Intelligence and financial execution arrive together. The agent can understand the device and create a request. Paisa.ai carries out the transaction only when it is within the authority that was set.</p>
+              </div>
               <Link className="link-arrow" to="/trust">
                 Explore the architecture →
               </Link>
               <div className="architecture-copy">
                 <div className="eyebrow">From context to commerce</div>
                 <h3>Think. Act. Pay.</h3>
-                <p>The agent reads the situation and makes a clear purchase request. Paisa.ai checks the rules and completes the payment.</p>
+                <p>The agent reads the situation, then makes a clear purchase request. Paisa.ai checks the rules and completes the payment.</p>
               </div>
             </div>
             <PaisaArchitectureDiagram />
