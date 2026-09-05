@@ -95,7 +95,7 @@ function Home() {
           <div className="container">
             <div className="section-head">
               <div className="copy">
-                <h2>You just need one integration for your devices.</h2>
+                <h2>You just need one integration for your devices</h2>
                 <p className="lead">
                   Paisa.ai combines the autonomous agent and financial infrastructure required for
                   smart devices to reason, act, and complete real-world transactions.
