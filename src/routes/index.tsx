@@ -88,25 +88,6 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div
-              className="hero-system glass"
-              aria-label="Smart device to Paisa.ai to autonomous commerce"
-            >
-              <div>
-                <b>Smart device</b>
-                <span>Context + signal</span>
-              </div>
-              <i>→</i>
-              <div className="hero-system-paisa">
-                <b>Paisa.ai</b>
-                <span>Agent + payment</span>
-              </div>
-              <i>→</i>
-              <div>
-                <b>Autonomous commerce</b>
-                <span>Action + transaction</span>
-              </div>
-            </div>
           </div>
         </section>
 

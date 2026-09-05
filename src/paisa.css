@@ -75,6 +75,22 @@ a {
   top: 0.875rem;
   z-index: 100;
   padding: 0 0 0.5rem;
+  isolation: isolate;
+}
+.topbar::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -0.875rem 0 -0.5rem;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--bg) 96%, transparent) 0%,
+    color-mix(in srgb, var(--bg) 90%, transparent) 78%,
+    transparent 100%
+  );
+  backdrop-filter: blur(0.875rem);
+  -webkit-backdrop-filter: blur(0.875rem);
+  pointer-events: none;
 }
 .nav {
   margin-top: 0.875rem;
@@ -83,6 +99,11 @@ a {
   justify-content: space-between;
   gap: 0.875rem;
   padding: 0.625rem 0.875rem;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--glass-strong) 96%, var(--bg)),
+    color-mix(in srgb, var(--glass) 92%, var(--bg))
+  );
 }
 .brand {
   display: flex;
@@ -2375,49 +2396,10 @@ html {
 
 /* Homepage Phase 2: one integration, agent + payment architecture. */
 .home-hero .hero-grid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  grid-template-columns: minmax(0, 1fr);
 }
-.hero-system {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: 0.55rem;
-  align-items: center;
-  padding: 1.25rem;
-  text-align: center;
-}
-.hero-system > div {
-  min-height: 7.2rem;
-  padding: 0.95rem 0.65rem;
-  border: 1px solid rgba(255, 255, 255, 0.58);
-  border-radius: 1.1rem;
-  background: rgba(255, 255, 255, 0.18);
-  display: grid;
-  place-content: center;
-  gap: 0.35rem;
-}
-.hero-system b,
-.hero-system span {
-  display: block;
-}
-.hero-system b {
-  font-size: 0.8rem;
-}
-.hero-system span {
-  font-size: 0.64rem;
-  color: var(--pmuted);
-  line-height: 1.35;
-}
-.hero-system > i {
-  font-style: normal;
-  color: var(--faint);
-  font-size: 1.05rem;
-}
-.hero-system .hero-system-paisa {
-  background: linear-gradient(140deg, rgba(49, 77, 177, 0.22), rgba(55, 160, 151, 0.16));
-  border-color: rgba(93, 131, 217, 0.4);
-}
-.hero-system-paisa b {
-  color: var(--blue);
+.home-hero .hero-copy {
+  max-width: 47rem;
 }
 .integration-pillars,
 .think-grid {
@@ -2725,7 +2707,6 @@ html {
 .closing-cta h2 {
   max-width: 43rem;
 }
-.dark .hero-system > div,
 .dark .architecture-node,
 .dark .core-module,
 .dark .demo-sequence span,
@@ -2735,7 +2716,6 @@ html {
   background: rgba(255, 255, 255, 0.07);
   border-color: rgba(215, 232, 255, 0.16);
 }
-.dark .hero-system .hero-system-paisa,
 .dark .paisa-core,
 .dark .stack-flow strong {
   background: linear-gradient(145deg, rgba(68, 104, 211, 0.25), rgba(47, 160, 146, 0.16));
@@ -2746,11 +2726,6 @@ html {
   .demo-layout {
     grid-template-columns: 1fr;
   }
-  .hero-system {
-    max-width: 42rem;
-    width: 100%;
-    margin-top: 1rem;
-  }
   .architecture-layout {
     gap: 2rem;
   }
@@ -2759,16 +2734,6 @@ html {
   }
 }
 @media (max-width: 600px) {
-  .hero-system {
-    grid-template-columns: 1fr;
-    gap: 0.45rem;
-  }
-  .hero-system > i {
-    transform: rotate(90deg);
-  }
-  .hero-system > div {
-    min-height: 0;
-  }
   .integration-pillars,
   .think-grid,
   .mental-model-grid,
