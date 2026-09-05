@@ -71,29 +71,14 @@ a {
   border-radius: 1.875rem;
 }
 .topbar {
-  position: sticky;
+  position: fixed;
   top: 0.875rem;
+  right: 0;
+  left: 0;
   z-index: 100;
-  padding: 0 0 0.5rem;
-  isolation: isolate;
-}
-.topbar::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -0.875rem 0 -0.5rem;
-  background: linear-gradient(
-    180deg,
-    color-mix(in srgb, var(--bg) 96%, transparent) 0%,
-    color-mix(in srgb, var(--bg) 90%, transparent) 78%,
-    transparent 100%
-  );
-  backdrop-filter: blur(0.875rem);
-  -webkit-backdrop-filter: blur(0.875rem);
-  pointer-events: none;
 }
 .nav {
-  margin-top: 0.875rem;
+  margin-top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,9 +86,20 @@ a {
   padding: 0.625rem 0.875rem;
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--glass-strong) 96%, var(--bg)),
-    color-mix(in srgb, var(--glass) 92%, var(--bg))
+    rgba(255, 255, 255, 0.48),
+    rgba(255, 255, 255, 0.2)
   );
+  border-color: rgba(255, 255, 255, 0.62);
+  box-shadow:
+    0 0.75rem 2.25rem rgba(35, 59, 97, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+.dark .nav {
+  background: linear-gradient(135deg, rgba(24, 32, 48, 0.56), rgba(14, 20, 32, 0.28));
+  border-color: rgba(215, 232, 255, 0.16);
+  box-shadow:
+    0 0.75rem 2.25rem rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 .brand {
   display: flex;
@@ -1361,7 +1357,7 @@ p {
     display: block;
   }
   .hero {
-    padding-top: 3.875rem;
+    padding-top: 6.25rem;
   }
   .signature {
     grid-template-columns: repeat(2, 1fr);
